@@ -1,0 +1,9 @@
+.containerSearchBar{
+    display: flex;
+    background-color: #11ACCB;
+    outline-style: dashed;
+    outline-color: #B9CB69;
+    outline-width: 0.25rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}

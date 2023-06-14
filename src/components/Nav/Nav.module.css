@@ -1,0 +1,14 @@
+.containerNav{
+    display: flex;
+    justify-content: space-evenly;
+    background-image: url("../../Images/wp7227935.png") ;
+    align-items: center;
+    padding: 25px;    
+    gap: 3rem;
+    position: fixed; /*?se queda estatico en ese lugar*/
+    width: 100%;
+}
+
+.img{
+    object-fit: contain;
+}

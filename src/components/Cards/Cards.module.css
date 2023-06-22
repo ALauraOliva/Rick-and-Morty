@@ -1,5 +1,4 @@
 .gridCards{
     display: grid;
-    position: relative;
-    top: 174px;
+    grid-template-columns: 4fr 4fr 4fr;
 }

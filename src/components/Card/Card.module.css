@@ -1,60 +1,62 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
 /* @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css); */
 
-.buttonClose{
 
-}
 
-figure.snip0056 {
+.figuraContenedor {
   font-family: 'Raleway', Arial, sans-serif;
-  overflow: hidden;
-  min-width: 380px;/*380  480*/
-  max-width: 300px;
-  width: 100%;
+  overflow:hidden;
+  min-width: 430px;
+  max-width: 330px;
   background: #ffffff;
-  color: #000000;
+  position:relative;
+  border-radius: 1rem;
+  border-style:outset;
+  border-width: 0.rem;
+  border-color: #ffff;
+  box-sizing: border-box;
+  /* padding: 0px 0px 0px; */
 }
-figure.snip0056 * {
-  -webkit-box-sizing: border-box;
+
+.buttonClose{
+  position:absolute;
+  left: 0px;
+  background-color: transparent;
+  border-width: 0px;
+}
+
+.figuraContenedor * { /*Solo indico que el contenido el sizing que yo coloco se calcule restando el paddign yd emas*/
+  /* -webkit-box-sizing: border-box; */
   box-sizing: border-box;
 } 
-figure.snip0056 > img {
-  width: 50%;
+.figuraContenedor img {
+  width: 55%;
   border-radius: 50%;
   border: 4px solid #ffffff;
-  -webkit-transition: all 0.35s ease-in-out;
+  /* -webkit-transition: all 0.35s ease-in-out; */
   transition: all 0.35s ease-in-out;
-  -webkit-transform: scale(1.6);
-  transform: scale(1.6);
+  /* -webkit-transform: scale(1.8); */
+  transform: scale(1.3);/*Se agranda, multiplicando el ancho y alto de la img por lo que le apso eje x y y*/
+  /* left: 6%; */
   position: relative;
   float: right;
-  right: -15%;
-  z-index: 1;
+  right: -6%;
+  z-index: 1; /*se superpone a todo entre mayor ses el valor*/
 }
-figure.snip0056 figcaption {
-  padding: 0px 10px 0px 20px;
+
+.figuraContenedor figcaption {
   position: absolute;
+  top:20px;
+  max-width: 180px;
 }
-figure.snip0056 figcaption h2,
-figure.snip0056 figcaption p {
-  margin: 0;
+
+.figuraContenedor h2{
+  margin:0 0 0 0;
   text-align: left;
-  padding: 10px 0;
-  width: 100%;
+  padding: 10px 0; /*top right bottom left*/
+  
 }
-figure.snip0056 figcaption h2 {
-  font-size: 1.3em;
-  font-weight: 300;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-figure.snip0056 figcaption h2 span {
-  font-weight: 800;
-}
-figure.snip0056 figcaption p {
-  font-size: 0.9em;
-  opacity: 0.8;
-}
+
 /* figure.snip0056 figcaption .icons {
   width: 100%;
   text-align: left;
@@ -73,12 +75,12 @@ figure.snip0056 figcaption .icons i {
 figure.snip0056 figcaption a:hover {
   opacity: 0.8;
 } *//*!Esto es para tags A, links*/
-figure.snip0056 .position { /*Esto es para el la parte de abajo del div */
+.figuraContenedor .status { /*Esto es para el la parte de abajo del div */
   width: 100%;
   text-align: left;
   padding: 15px 30px;
   font-size: 0.9em;
-  opacity: 1;
+  opacity: 1; /*rango de 0 a 1*/
   font-style: italic;
   color: #ffffff;
   background: #000000;
@@ -93,7 +95,7 @@ figure.snip0056.red .position {
 figure.snip0056.yellow .position {
   background: #bf6516;
 } */
-figure.snip0056:hover > img,
-figure.snip0056.hover > img {
-  right: -12%;
-}
+.figuraContenedor:hover > img,
+.figuraContenedor.hover > img {
+  right: -2%;
+} 

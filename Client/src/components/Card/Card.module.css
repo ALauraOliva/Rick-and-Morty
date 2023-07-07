@@ -1,101 +1,89 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
-/* @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css); */
-
-
-
-.figuraContenedor {
-  font-family: 'Raleway', Arial, sans-serif;
-  overflow:hidden;
-  min-width: 430px;
-  max-width: 330px;
-  background: #ffffff;
-  position:relative;
-  border-radius: 1rem;
-  border-style:outset;
-  border-width: 0.rem;
-  border-color: #ffff;
-  box-sizing: border-box;
-  /* padding: 0px 0px 0px; */
+.contenedorPrincipal{
+  padding: 60px 0 0 0;
 }
 
-.buttonClose{
-  position:absolute;
-  left: 0px;
-  background-color: transparent;
-  border-width: 0px;
-}
-
-.figuraContenedor * { /*Solo indico que el contenido el sizing que yo coloco se calcule restando el paddign yd emas*/
-  /* -webkit-box-sizing: border-box; */
-  box-sizing: border-box;
-} 
-.figuraContenedor img {
-  width: 55%;
-  border-radius: 50%;
-  border: 4px solid #ffffff;
-  /* -webkit-transition: all 0.35s ease-in-out; */
-  transition: all 0.35s ease-in-out;
-  /* -webkit-transform: scale(1.8); */
-  transform: scale(1.3);/*Se agranda, multiplicando el ancho y alto de la img por lo que le apso eje x y y*/
-  /* left: 6%; */
+.spinningTextWrapper{
   position: relative;
-  float: right;
-  right: -6%;
-  z-index: 1; /*se superpone a todo entre mayor ses el valor*/
-}
-
-.figuraContenedor figcaption {
-  position: absolute;
-  top:20px;
-  max-width: 180px;
-}
-
-.figuraContenedor h2{
-  margin:0 0 0 0;
-  text-align: left;
-  padding: 10px 0; /*top right bottom left*/
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+ 
+  border-style:outset;
+  display:grid;
+  place-items: center;
+  box-sizing: border-box;
   
 }
 
-/* figure.snip0056 figcaption .icons {
-  width: 100%;
-  text-align: left;
+.spinningTextWrapper:hover{
+  background: url(https://mystickermania.com/cdn/stickers/rick-and-morty/sticker_2060.png) no-repeat center;
+  border-style: none;
+  transform: scale(1.25)
 }
-figure.snip0056 figcaption .icons i {
-  font-size: 26px;
-  padding: 5px;
+
+.spinningTextWrapper img {
+  position: absolute;
+  width: 200px;
+  border-radius: 50%;
+  border: 10px solid #ffffff;
+}
+/* Esto es para las opciones de imagenes DETAIL*/
+.image_overlay{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+}
+
+.image_overlay:hover{
+  opacity: 1;
+  cursor: pointer;
+  
+}
+
+.image_buttons{
+  position: relative;
   top: 50%;
-  color: #000000;
-} */
-/* figure.snip0056 figcaption a {
-  opacity: 0.3;
-  -webkit-transition: opacity 0.35s;
-  transition: opacity 0.35s;
 }
-figure.snip0056 figcaption a:hover {
-  opacity: 0.8;
-} *//*!Esto es para tags A, links*/
-.figuraContenedor .status { /*Esto es para el la parte de abajo del div */
+
+.spinningText{
+  position:absolute;
   width: 100%;
-  text-align: left;
-  padding: 15px 30px;
-  font-size: 0.9em;
-  opacity: 1; /*rango de 0 a 1*/
-  font-style: italic;
-  color: #ffffff;
-  background: #000000;
-  clear: both;
+  height: 100%;
+  margin:0;
+  
+  animation: spin 50s linear infinite; 
 }
-/* figure.snip0056.blue .position {
-  background: #20638f;
+
+.spinningText span{
+  position: absolute;
+  top:0px;
+  transform-origin: 0 150px;
+  font-weight: bold;
+  color:#ffffff;
+  font-size:large;
 }
-figure.snip0056.red .position {
-  background: #962d22;
+
+.spinningText:hover{
+  animation-play-state: paused;
+  cursor: pointer;
 }
-figure.snip0056.yellow .position {
-  background: #bf6516;
-} */
-.figuraContenedor:hover > img,
-.figuraContenedor.hover > img {
-  right: -2%;
-} 
+
+.buttonClose:hover{
+  cursor: pointer;
+}
+
+.buttonFav:hover{
+  cursor: pointer;
+}
+
+@keyframes spin{
+  0%{
+    transform: rotate(0deg);
+  }  
+  100%{
+    transform: rotate(360deg);
+  }
+}

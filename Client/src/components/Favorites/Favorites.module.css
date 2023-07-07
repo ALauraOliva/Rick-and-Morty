@@ -1,0 +1,6 @@
+.container_Grid_Favs{
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+    place-items: center;
+    margin-bottom: 3%;
+}

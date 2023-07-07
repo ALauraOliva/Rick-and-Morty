@@ -1,5 +1,6 @@
-// import styledSearchBar from './SearchBar.module.css'
+import styledSearchBar from './SearchBar.module.css'
 import { useState } from 'react';
+
 
 export default function SearchBar({onSearch}) {
 
@@ -9,10 +10,11 @@ export default function SearchBar({onSearch}) {
       setId(event.target.value)
    }
 
-   return (
-      <div >    
-         <input onChange = {handleChange} value={id}/>
-         <button onClick={() =>{onSearch(id); setId('')}}>Agregar</button>
-      </div>
+   return (    
+      <>
+         <input onChange = {handleChange} value={id} placeholder='  Add a character ... '></input>
+         <button className={styledSearchBar.button_text} onClick={() =>{onSearch(id); setId('')}}>Agregar</button>
+
+      </>
    );
 }

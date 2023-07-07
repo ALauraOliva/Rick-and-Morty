@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 import {addFav, removeFav} from '../../redux/actions'
 import {connect} from 'react-redux'
 import {useState, useEffect} from 'react'
-
+//*❤️‍🔥❤️*/
 export function Card({id,name,status,species,gender,origin,image,onClose, addFav, removeFav, myFavorites}) {
    
    const [isFav, setIsFav] = useState(false);
@@ -26,23 +26,41 @@ export function Card({id,name,status,species,gender,origin,image,onClose, addFav
       })
    }, [myFavorites]);
 
+   let num = 0;
    return (
-      <div>
-         <button onClick={handleFavorite}>{isFav ? '❤️':'🤍'}</button>
-         <figure className={styleCard.figuraContenedor}>
-            <button onClick={()=>onClose(id)} className={styleCard.buttonClose}>X</button>
-            <figcaption>
-               <NavLink to={`/Detail/${id}`}>
-                  <h2>{name}</h2>
-               </NavLink>
-               <h2>{gender}</h2>
-               <h2>{origin}</h2>
-            </figcaption>
-            <img src={image} alt='' />
-            <div className={styleCard.status}>{`${status} ${species}`}</div>
-         </figure>
+      <div className={styleCard.contenedorPrincipal}>
+         
+            <div className={styleCard.spinningTextWrapper}>
+               <div className={styleCard.spinningText}>
+                  <p>
+                     {name.split("").map((letra, i) => (
+                        num=num+8,
+                        <span
+                           key={i}
+                           style={{
+                              transform: `rotate(${num}deg)`
+                           }}
+                        >
+                           {letra}
+                        </span>
+                     ))}
+                  </p>
+               </div>
+
+               <img src={image} alt={name} />
+               <div className={styleCard.image_overlay}>
+                  <div className={styleCard.image_buttons}>
+                     <button onClick={handleFavorite} className={styleCard.buttonFav}>{isFav ? '❤️‍🔥':'🤍'}</button> 
+                     <button onClick={()=>onClose(id)} className={styleCard.buttonClose}>💀</button>
+                     <NavLink to={`/Detail/${id}`}>
+                        <p>Know More</p>
+                     </NavLink>
+                     
+                  </div>
+               </div>
+         </div>
       </div>
-   );
+    );
 }
 
 const mapStateToProps = (state) => {

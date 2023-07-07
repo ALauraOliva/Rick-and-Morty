@@ -9,37 +9,49 @@ import Detail from './components/Detail/Detail'
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
 
-const email = 'andrea_carol00@hotmail.com'
-const password = 'laulauh231'
+const URL = 'http://localhost:3001/rickandmorty/login/';
 
 function App() {
    const location = useLocation();
-   const Navigate = useNavigate();
+   const navigate = useNavigate();
    //todo: Creando estado caracters-array
    let [characters,setCharacters] = useState([]); 
    const [access, setAccess] = useState(false);
-   
-   const login = (userData) => {
-      if(userData.email === email && userData.password === password){
-         setAccess(true);
-         Navigate('/Home');
+   console.log(access)
+   const login = async(userData) => {
+      try {
+         const { email, password } = userData;
+         const data = await axios(URL + `?email=${email}&password=${password}`)
+         // const { access } = data; //!no sigue acces sigue data
+         const access = data.data.access;
+         console.log(data)
+         setAccess(access);
+         access && navigate('/home');
+      } catch (error) {
+         console.log(error.message)
       }
    }
-   
+
    useEffect(() => {
       //eslint-disable-next-line
-      !access && Navigate('/')
+      !access && navigate('/')  //ESTA EN PRUEBA
    },[access])
 
-   const onSearch = (id) => {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-         if (data.name) {
+   const onSearch = async(id) => {
+      try {
+         const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+
+         if(data.name) {
             let Existe = characters && characters.find(charac=> charac.id===Number(id));
-            Existe ? setCharacters([...characters]) : setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            alert('¡No hay personajes con este ID!');
+
+            Existe 
+            ? setCharacters([...characters]) 
+            : setCharacters((oldChars) => [...oldChars, data]);
          }
-      }).catch(function(error){alert('¡No hay personajes con este ID!');});
+
+      } catch (error) {
+         alert('¡No hay personajes con este ID!')
+      }
    }
    
    const onClose = (id)=>{
@@ -62,7 +74,7 @@ function App() {
          }
             <Routes>
                <Route path={'/'} element={<Form login = {login}/>} />
-               <Route path={'/Home'} element={<Cards characters={characters} onClose={onClose} />}/>
+               <Route path={'/home'} element={<Cards characters={characters} onClose={onClose} />}/>
                <Route path={'/About'} element={<About/>}/>
                <Route path={'/Detail/:id'} element={<Detail/>}/>
                <Route path={'/favorites'} element={<Favorites/>}/>

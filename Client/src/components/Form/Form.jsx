@@ -2,11 +2,11 @@ import { useState } from "react"
 import validation from "../Validation/Validation"
 
 const Form = ({login}) =>{
-    const [errors, setErrors] = useState({})
     const [userData, setUserData] = useState({
         email: '',
         password: ''
     })
+    const [errors, setErrors] = useState({})
 
     const handleSubmit = (event) =>{
         event.preventDefault(); //sin esto la pagina se recarga cuando le damos a submit
@@ -33,7 +33,7 @@ const Form = ({login}) =>{
             <input type="text" name="password" value={userData.password} onChange={handleChange}></input>
             {errors.password && <p style={{color:"white"}}>{errors.password }</p>}
 
-            <button>Submit</button>
+            <button type="Submit">Submit</button>
         </form>
     )
 }

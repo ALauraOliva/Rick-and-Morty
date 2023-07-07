@@ -1,4 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand);
 #AppContainer {
+  font-family: Patrick Hand;
    text-align: center;
    height: 100%;
    min-height: 100vh;

@@ -2,6 +2,7 @@ import Card from "../Card/Card"
 import { connect, useDispatch } from "react-redux"
 import {filterCards, orderCards} from '../../redux/actions'
 import { useState } from "react"
+import styleFavs from './Favorites.module.css'
 
 const Favorites = ({ myFavorites }) => {
     const dispatch = useDispatch()
@@ -18,7 +19,7 @@ const Favorites = ({ myFavorites }) => {
 
 
     return(
-        <div>
+        <> 
             <select onChange={handleOrder}>
                 <option value="A">Ascendente</option>
                 <option value="D">Descendente</option>
@@ -30,23 +31,25 @@ const Favorites = ({ myFavorites }) => {
                 <option value="Genderless">Genderless</option>
                 <option value="unknown">unknown</option>
             </select>
-        {
-            myFavorites?.map(fav =>{
-                return(
-                    <Card
-                    key = {fav.id}
-                    id  = {fav.id}
-                    name = {fav.name}
-                    status = {fav.status}
-                    species = {fav.species}
-                    gender = {fav.gender}
-                    origin = {fav.origin}
-                    image = {fav.image}
-                />
-                )
-            })
-        }
-        </div>
+            <div className={styleFavs.container_Grid_Favs}>
+                {
+                    myFavorites?.map(fav =>{
+                        return(
+                            <Card
+                            key = {fav.id}
+                            id  = {fav.id}
+                            name = {fav.name}
+                            status = {fav.status}
+                            species = {fav.species}
+                            gender = {fav.gender}
+                            origin = {fav.origin}
+                            image = {fav.image}
+                        />
+                        )
+                    })
+                }
+            </div>
+        </>
     )
 
 }

@@ -1,14 +1,70 @@
-.containerNav{
-    display: flex;
-    justify-content: space-evenly;
-    background-image: url("../../Images/wp7227935.png") ;
-    align-items: center;
-    padding: 25px;    
-    gap: 3rem;
-    position: fixed; /*?se queda estatico en ese lugar*/
-    width: 100%;
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand);
+
+button{
+    background-color: transparent;
+    border-color: transparent;
 }
 
-.img{
-    object-fit: contain;
+.song{
+    position: absolute;
+    width: 98%;
+    display: flex;
+    justify-content: end;
+    margin: 0.7%;
+    opacity: 0.7;
 }
+audio{
+    height: 38px;
+    width: 100px;       
+}
+.containerNav{ /*?Container Principal*/
+    padding: 3% 3% 0 3% ;
+    display: flex;
+    flex-wrap: nowrap;/*INDECISA  */
+    justify-content: space-around;
+}
+
+.logotipoContainer{
+    display: flex;
+    align-items: center;
+}
+
+.searchContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.searchContainer button:hover {
+    cursor: pointer;
+}
+
+.Nav{ /*?Container del nav*/
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: transparent;
+    border-bottom: solid #42B4CA;
+    border-width: 10px;
+    gap: 15px;
+}
+
+.Nav a{ /*?El texto de los enlaces*/
+    font-family: Patrick Hand;
+    font-size: 40px;
+    text-decoration: none; /*?Para quitarle el subrayado o tachados por ser enlace que tiene*/
+    color: #BEDD3E;
+    transition: ease-out 0.3s;
+    text-shadow:2px 1px #42B4CA;
+}
+
+.Nav a:hover{
+  background-color: #42B4CA; /*!o este color 7AC71D*/
+  color: #ffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  transition: ease-out 0.3s;
+}
+

@@ -5,7 +5,7 @@ export default function validation(userData){
     //?EMAIL ERRORS
     
     if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(userData.email)){
-        errors.email = 'El e-mail ingresado no es valido'
+        errors.email = 'El e-mail ingresado no es válido'
     }
     if(!userData.email){
         errors.email = 'Debe ingresar un email'
@@ -16,10 +16,10 @@ export default function validation(userData){
     
     //?PASSWORD ERRORS
     if(!/.*\d+.*/.test(userData.password)){
-        errors.password = 'La contrasenia debe contener al menos 1 numero'
+        errors.password = 'La contraseña debe contener al menos 1 numero'
     }
     if(userData.password.length < 6 || userData.password.length > 10){
-        errors.password = 'La contrasenia debe estar entre 6 y 10 caracteres'
+        errors.password = 'La contraseña debe estar entre 6 y 10 caracteres'
     }
     
     return errors;

@@ -1,0 +1,97 @@
+label{
+    background-color: transparent;
+    font-family: Patrick Hand;
+    font-size: 30px;
+    text-decoration: none; /*?Para quitarle el subrayado o tachados por ser enlace que tiene*/
+    color: #BEDD3E;
+    transition: ease-out 0.3s;
+    text-shadow:2px 1px #42B4CA;
+}
+
+.formContenedor{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    justify-content: center;
+    align-items: center;  
+    gap: 30px;
+    width: 400px;
+    padding-top: 10px;
+}
+
+.inputt{
+    font-family: Patrick Hand ;
+    font-size: 20px;
+    color: white;
+    border-color: #42B4CA;
+    border-width: 6px;
+    background: transparent;
+    border-radius: 30px;
+    padding: 4px 4px 4px 4px;
+    color: #7AC71D;
+    width: 100%;
+    text-align: center;
+}
+
+.inputt:hover{
+    font-family: Patrick Hand ;
+    font-size: 20px;
+    color: white;
+    box-shadow: 0 0 25px 0 #7AC71D,
+                0 20px 25px 0 rgba(0, 0, 0, 0.2);
+    transition: all 1s;
+ }
+
+.login button{
+    font-family: Patrick Hand ;
+   font-size: 20px;
+   color: white;
+   background-color: #42B4CA;
+   padding: 7px;
+   border-radius: 10px;
+}
+.login button:hover {
+    cursor: pointer;
+}
+
+.login img{
+    /* scale: 1.2; */
+    width: 90%;
+}
+
+.containerLabelsGlobal{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px 20px 0px;
+    justify-content: space-around;
+    align-items: center;  
+    width: 100%;
+}
+
+.containerLabels{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0px 0 10px 0;
+    gap: 20px;
+    width: 85%;
+    align-items: center;
+}
+.containerLabelsGlobal p{
+    font-family: Patrick Hand;
+    font-size: large;
+}

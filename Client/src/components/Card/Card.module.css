@@ -64,6 +64,7 @@
   font-weight: bold;
   color:#ffffff;
   font-size:large;
+  font-family: Patrick Hand;
 }
 
 .spinningText:hover{
@@ -73,10 +74,12 @@
 
 .buttonClose:hover{
   cursor: pointer;
+  transform:scale(2);
 }
 
 .buttonFav:hover{
   cursor: pointer;
+  transform:scale(2);
 }
 
 @keyframes spin{
@@ -86,4 +89,19 @@
   100%{
     transform: rotate(360deg);
   }
+}
+
+.NavLink{
+  font-size:large;
+  font-family: Patrick Hand;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.NavLink:hover{
+  font-family: Patrick Hand;
+    
+    text-decoration: none; /*?Para quitarle el subrayado o tachados por ser enlace que tiene*/
+    color: #BEDD3E;
+    text-shadow:1px 0px #42B4CA;
 }

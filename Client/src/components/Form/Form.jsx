@@ -1,5 +1,8 @@
 import { useState } from "react"
 import validation from "../Validation/Validation"
+import styledForm from "./Form.module.css"
+import loginLogo2 from "./login2.png"
+import {BsEyeFill} from 'react-icons/bs'
 
 const Form = ({login}) =>{
     const [userData, setUserData] = useState({
@@ -24,17 +27,27 @@ const Form = ({login}) =>{
     }
 
     return( //!El 'htmlFor' referencia al input ,, le ponemos name=email al input y lo que escirba el user se ve reflejado en htmlFor
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email:</label>
-            <input type="text" name="email" value={userData.email} onChange={handleChange}></input>
-            {errors.email && <p style={{color:"white"}}>{errors.email}</p>}
-            <hr></hr>
-            <label htmlFor="password">Password:</label>
-            <input type="text" name="password" value={userData.password} onChange={handleChange}></input>
-            {errors.password && <p style={{color:"white"}}>{errors.password }</p>}
-
-            <button type="Submit">Submit</button>
-        </form>
+    
+        <div className={styledForm.formContenedor}>
+            
+            <form className={styledForm.login} onSubmit={handleSubmit}>
+                <img src={loginLogo2}/>
+                <div className={styledForm.containerLabelsGlobal}>
+                    <div className={styledForm.containerLabels}>
+                        <label htmlFor="email">Email:</label>
+                        <input className={styledForm.inputt} type="text" name="email" value={userData.email} onChange={handleChange} ></input>
+                        
+                    </div>
+                    {errors.email && <p style={{color:"white"}}>{errors.email}</p>}
+                    <div className={styledForm.containerLabels}>
+                        <label htmlFor="password">Password:</label>
+                        <input className={styledForm.inputt} type="password" name="password" value={userData.password} onChange={handleChange} ></input>                   
+                    </div>
+                    {errors.password && <p style={{color:"white"}}>{errors.password }</p>}
+                    <button type="Submit">Login</button>
+                </div>
+            </form>
+        </div>    
     )
 }
 

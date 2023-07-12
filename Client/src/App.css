@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Patrick+Hand);
 #AppContainer {
-  font-family: Patrick Hand;
+  /* font-family: Patrick Hand; */
    text-align: center;
-   height: 100%;
+   height: fit-content;
    min-height: 100vh;
    background-color: #090A0F;
    background: radial-gradient(ellipse at bottom, #090A0F 0%, #090A0F 100%);

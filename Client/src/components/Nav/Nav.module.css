@@ -3,6 +3,7 @@
 button{
     background-color: transparent;
     border-color: transparent;
+    cursor: pointer;
 }
 
 .song{
@@ -54,7 +55,6 @@ audio{
     font-size: 40px;
     text-decoration: none; /*?Para quitarle el subrayado o tachados por ser enlace que tiene*/
     color: #BEDD3E;
-    transition: ease-out 0.3s;
     text-shadow:2px 1px #42B4CA;
 }
 
@@ -65,6 +65,7 @@ audio{
   padding-bottom: 10px;
   padding-right: 10px;
   padding-left: 10px;
-  transition: ease-out 0.3s;
+  
+  transition: all 0.5s;
 }
 

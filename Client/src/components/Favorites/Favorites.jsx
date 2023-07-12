@@ -19,37 +19,47 @@ const Favorites = ({ myFavorites }) => {
 
 
     return(
-        <> 
-            <select onChange={handleOrder}>
-                <option value="A">Ascendente</option>
-                <option value="D">Descendente</option>
-            </select>
+        <>
+            <div className={styleFavs.contenedorGlobalFavs}> 
+                <div className={styleFavs.containerFiltros}>
+                    <div>Filters : </div>
+                    <select onChange={handleOrder}>
+                        <option value="N">None</option>
+                        <option value="A">Ascendent</option>
+                        <option value="D">Descendent</option>
+                    </select>
 
-            <select onChange={handleFilter}>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Genderless">Genderless</option>
-                <option value="unknown">unknown</option>
-            </select>
-            <div className={styleFavs.container_Grid_Favs}>
-                {
-                    myFavorites?.map(fav =>{
-                        return(
-                            <Card
-                            key = {fav.id}
-                            id  = {fav.id}
-                            name = {fav.name}
-                            status = {fav.status}
-                            species = {fav.species}
-                            gender = {fav.gender}
-                            origin = {fav.origin}
-                            image = {fav.image}
-                        />
-                        )
-                    })
-                }
+                    <select onChange={handleFilter}>
+                        <option value="All">None</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Genderless">Genderless</option>
+                        <option value="unknown">unknown</option>
+                    </select>
+                </div>
             </div>
+
+                <div className={styleFavs.container_Grid_Favs}>
+                    {
+                        myFavorites?.map(fav =>{
+                            return(
+                                <Card
+                                key = {fav.id}
+                                id  = {fav.id}
+                                name = {fav.name}
+                                status = {fav.status}
+                                species = {fav.species}
+                                gender = {fav.gender}
+                                origin = {fav.origin}
+                                image = {fav.image}
+                            />
+                            )
+                        })
+                    }
+                </div>
+            
         </>
+        
     )
 
 }

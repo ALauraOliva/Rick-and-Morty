@@ -1,7 +1,22 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Rock+Salt|Shadows+Into+Light|Cedarville+Cursive);
+
+@font-face {
+  font-family: signatureFont;
+  src: url("./KarstarFree.ttf");
+}
+
+@font-face {
+  font-family: detailFont;
+  src: url("./atwriter.ttf");
+}
+
+@font-face {
+  font-family: oldFont;
+  src: url("./OldNewspaperTypes.ttf");
+}
 
 .contenedorDetail{
-  margin: 40px 0 0 0 ;
+  margin: 40px 0 40px 0 ;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -9,72 +24,110 @@
 }
 
 .figuraContenedor {
-  font-family: 'Raleway', Arial, sans-serif;
   overflow:hidden;
-  min-width: 430px;
-  max-width: 330px;
-  background: #ffffff;
+  width: 700px;
+  height: fit-content;
+  background-image: url('./FondoCardTransparente.png');
+  background-color: #ffffff;
+  background-size: cover;
+  background-repeat: no-repeat;
   position:relative;
   border-radius: 1rem;
   border-style:outset;
   border-width: 0.rem;
   border-color: #ffff;
-  box-sizing: border-box;
-}
-
-.buttonClose{
-  position:absolute;
-  left: 0px;
-  background-color: transparent;
-  border-width: 0px;
+  box-sizing: border-box; 
+  padding: 10px;
 }
 
 .figuraContenedor * { /*Solo indico que el contenido el sizing que yo coloco se calcule restando el paddign yd emas*/
   /* -webkit-box-sizing: border-box; */
   box-sizing: border-box;
-} 
-.figuraContenedor img {
-  width: 55%;
-  border-radius: 50%;
-  border: 4px solid #ffffff;
-  /* -webkit-transition: all 0.35s ease-in-out; */
-  transition: all 0.35s ease-in-out;
-  /* -webkit-transform: scale(1.8); */
-  transform: scale(1.3);/*Se agranda, multiplicando el ancho y alto de la img por lo que le apso eje x y y*/
   position: relative;
-  float: right;
-  right: -6%;
-  z-index: 1; /*se superpone a todo entre mayor ses el valor*/
+} 
+
+.figuraContenedor img {
+  border: 4px solid #000000;
 }
 
 .figuraContenedor figcaption {
-  position: absolute;
-  top:20px;
-  max-width: 180px;
-  padding: 0 0 0 2%;
+  padding: 8px;
+  font-family: detailFont;
 }
 
 .figuraContenedor h2{
-  margin:0 0 0 0;
   text-align: left;
   padding: 10px 0 0 17px; /*top right bottom left*/
   color: #000000;
-  
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  margin: 0px 0px 8px 0px;
 }
 
-.figuraContenedor .status { /*Esto es para el la parte de abajo del div */
-  width: 100%;
-  text-align: left;
-  padding: 15px 30px;
-  font-size: 0.9em;
-  opacity: 1; /*rango de 0 a 1*/
-  font-style: italic;
+.figuraContenedor .title { /*Esto es para el la parte de abajo del div */
+  height: fit-content;
+  border-width: 10px 10px 10px 10px;
+  border-color: #ffffff;
+  padding: 7px;
+  border-style:solid;
+  border-radius: 8px;
+  font-size: 40px;
+  font-family: oldFont;
   color: #ffffff;
-  background: #000000;
-  clear: both;
+  background-color: #A1BE3F;
 }
 
-.figuraContenedor:hover > img,
-.figuraContenedor.hover > img {
-  right: -2%;
-} 
+.contenidoContenedor{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  align-items: center;
+}
+
+.SignatureContenedor { /*Esto es para el la parte de abajo del div */
+  height: 70px;
+  width: 50%;
+  border-width: 10px 10px 10px 10px;
+  border-color: #ffffff;
+  padding: 7px;
+  border-style:solid;
+  border-radius: 8px;
+  font-size: 80px;
+  font-family: signatureFont;
+  color: #ffffff;
+  background-color: #A1BE3F;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.SignatureContenedor p{ /*Esto es para el la parte de abajo del div */
+  font-size: 15px;
+  font-family: detailFont;
+  color: #000000;
+  padding: 0px;
+  margin: 0px;
+  width: fit-content;
+  float: left;
+}
+
+.SignatureContenedor div{ /*Esto es para el la parte de abajo del div */
+  font-size: 60px;
+  font-family: signatureFont;
+  color: #000000;
+  padding: 0px;
+  margin: 0px;
+  width: fit-content;
+  float: left;
+}
+
+.footerContenedor{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.footerContenedor img{
+  width:45%;
+  height: 70px;
+}

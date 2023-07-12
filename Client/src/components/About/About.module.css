@@ -1,0 +1,44 @@
+.contenedorAbout{
+    width: 100%;
+    justify-content: center;
+    gap: 50px;
+    display: flex;
+    align-items: center;
+    padding: 40px 0 20px 0;
+}
+
+.contenedorAbout h3,h1,p{
+    font-family: Patrick Hand;
+}
+
+.contenedorAbout h3{
+    color: white;
+    font-size: 40px;
+    margin: 0;
+}
+
+.contenedorAbout h1{
+    color: white;
+    font-size: 90px;
+    margin: 0;
+}
+
+.contenedorAbout p{
+    color: white;
+    font-size: 30px;
+    margin: 0;
+}
+
+.contenedorAbout img{
+    border-radius: 50%;
+    z-index: 0;
+    height: 400px;
+}
+
+.links{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}

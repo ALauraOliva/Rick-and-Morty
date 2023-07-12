@@ -1,16 +1,20 @@
-*{
+
+
+.button_text{
    font-family: Patrick Hand ;
    font-size: 20px;
    color: white;
-}
-
-.button_text{
    background-color: #42B4CA;
-   padding: 7px;
    border-radius: 15%;
+   width: 40px;
+   height: 40px;
+   text-align: center;
 }
 
-input{
+.inputSearch{
+   font-family: Patrick Hand ;
+   font-size: 20px;
+   color: white;
    border-color: #42B4CA;
    border-width: 6px;
    background: transparent;
@@ -19,8 +23,10 @@ input{
    color: #7AC71D;
 }
 
-input:hover{
-   
+.inputSearch:hover{
+   font-family: Patrick Hand ;
+   font-size: 20px;
+   color: white;
    box-shadow: 0 0 25px 0 #7AC71D,
                0 20px 25px 0 rgba(0, 0, 0, 0.2);
    transition: all 1s;

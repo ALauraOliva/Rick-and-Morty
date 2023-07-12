@@ -17,7 +17,7 @@ function App() {
    //todo: Creando estado caracters-array
    let [characters,setCharacters] = useState([]); 
    const [access, setAccess] = useState(false);
-   console.log(access)
+
    const login = async(userData) => {
       try {
          const { email, password } = userData;
@@ -26,7 +26,7 @@ function App() {
          const access = data.data.access;
          console.log(data)
          setAccess(access);
-         access && navigate('/home');
+         access && navigate('/Home');
       } catch (error) {
          console.log(error.message)
       }
@@ -62,23 +62,22 @@ function App() {
    return (
       <div id='AppContainer'>
          <div id='stars'>
-            <div id='stars2'>
-               <div id='stars3'>
-                  
+                  <div id='stars2'>
+                     <div id='stars3'>
+                        
+                     </div>
+                  </div>
                </div>
-            </div>
-         </div>
          {
             location.pathname !== '/' && <Nav onSearch={onSearch} setAccess={setAccess}/>
-            
          }
-            <Routes>
-               <Route path={'/'} element={<Form login = {login}/>} />
-               <Route path={'/home'} element={<Cards characters={characters} onClose={onClose} />}/>
-               <Route path={'/About'} element={<About/>}/>
-               <Route path={'/Detail/:id'} element={<Detail/>}/>
-               <Route path={'/favorites'} element={<Favorites/>}/>
-            </Routes>
+         <Routes>
+            <Route path={'/'} element={<Form login = {login}/>} />
+            <Route path={'/Home'} element={<Cards characters={characters} onClose={onClose} />}/>
+            <Route path={'/About'} element={<About/>}/>
+            <Route path={'/Detail/:id'} element={<Detail/>}/>
+            <Route path={'/favorites'} element={<Favorites/>}/>
+         </Routes>
       </div>
    );
 }

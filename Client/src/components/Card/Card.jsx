@@ -51,9 +51,9 @@ export function Card({id,name,status,species,gender,origin,image,onClose, addFav
                <div className={styleCard.image_overlay}>
                   <div className={styleCard.image_buttons}>
                      <button onClick={handleFavorite} className={styleCard.buttonFav}>{isFav ? '❤️‍🔥':'🤍'}</button> 
-                     <button onClick={()=>onClose(id)} className={styleCard.buttonClose}>💀</button>
-                     <NavLink to={`/Detail/${id}`}>
-                        <p>Know More</p>
+                     <button onClick={()=>onClose(id)} className={styleCard.buttonClose}>☠️</button>
+                     <NavLink className={styleCard.NavLink} to={`/Detail/${id}`}>
+                        <p>Know More ...</p>
                      </NavLink>
                      
                   </div>

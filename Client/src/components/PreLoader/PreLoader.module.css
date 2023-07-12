@@ -1,0 +1,26 @@
+.img{
+    width: 30%;
+    top: 10%;
+    position: absolute;
+    /* animation-name: girarMorty;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; */
+}
+
+/* @keyframes girarMorty{
+    from{
+        transform: rotate(0deg);
+
+    }to{
+        transform: rotate(360deg);
+    }
+} */
+.contenedorPreLoader{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+    

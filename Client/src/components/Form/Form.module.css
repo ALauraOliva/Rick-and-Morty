@@ -1,13 +1,3 @@
-label{
-    background-color: transparent;
-    font-family: Patrick Hand;
-    font-size: 30px;
-    text-decoration: none; /*?Para quitarle el subrayado o tachados por ser enlace que tiene*/
-    color: #BEDD3E;
-    transition: ease-out 0.3s;
-    text-shadow:2px 1px #42B4CA;
-}
-
 .formContenedor{
     width: 100%;
     height: 100vh;
@@ -30,8 +20,22 @@ label{
     align-items: center;  
     gap: 30px;
     width: 400px;
-    padding-top: 10px;
 }
+
+.login img{
+    width: 90%;
+}
+
+label{
+    background-color: transparent;
+    font-family: Patrick Hand;
+    font-size: 30px;
+    text-decoration: none; /*?Para quitarle el subrayado o tachados por ser enlace que tiene*/
+    color: #BEDD3E;
+    transition: ease-out 0.3s;
+    text-shadow:2px 1px #42B4CA;
+}
+
 
 .inputt{
     font-family: Patrick Hand ;
@@ -68,10 +72,6 @@ label{
     cursor: pointer;
 }
 
-.login img{
-    /* scale: 1.2; */
-    width: 90%;
-}
 
 .containerLabelsGlobal{
     display: flex;
@@ -86,12 +86,62 @@ label{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 0px 0 10px 0;
+    padding-bottom:10px;
     gap: 20px;
     width: 85%;
     align-items: center;
 }
+
 .containerLabelsGlobal p{
     font-family: Patrick Hand;
     font-size: large;
+}
+
+@media screen and (max-width: 334px) {
+    .login{
+        width: 90vw;
+        height: 75%;
+        gap: 0px;
+    }
+
+    .login img{
+        position: relative;
+        top: -30px;
+    }
+
+    .containerLabels{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom:5px;
+        gap: 0px;
+        width: 85%;
+        align-items: center;
+    }
+
+    .containerLabelsGlobal{
+        display: flex;
+        flex-direction: column;
+        padding: 0 0 20px 0;
+        justify-content: space-around;
+        align-items: center;  
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 335px) and (max-width: 420px) {
+    .containerLabels{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom:5px;
+        gap: 0px;
+        width: 85%;
+        align-items: center;
+    }
+
+    .login{
+        gap: 10px;
+        width: 85%;
+    }
 }

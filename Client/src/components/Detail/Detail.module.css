@@ -131,3 +131,39 @@
   width:45%;
   height: 70px;
 }
+
+@media screen and (max-width: 712px) {
+  .contenidoContenedor{
+    flex-direction: column-reverse;
+  }
+
+  .figuraContenedor {
+    overflow:hidden;
+    width: 80vw;
+  }
+
+  .figuraContenedor .title  { /*Esto es para el la parte de abajo del div */
+    font-size: 20px;
+  }
+
+  .figuraContenedor h2{
+    font-size: 17px;
+  }
+
+  .SignatureContenedor p{ /*Esto es para el la parte de abajo del div */
+    font-size: 8px;
+  }
+  
+  .SignatureContenedor div{ /*Esto es para el la parte de abajo del div */
+    font-size: 20px;
+  }
+
+  .figuraContenedor img {
+    max-width: 80%;
+  }
+
+  .figuraContenedor figcaption {
+    min-width: 90%;
+  }
+}
+

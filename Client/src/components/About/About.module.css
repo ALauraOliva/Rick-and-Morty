@@ -32,7 +32,7 @@
 .contenedorAbout img{
     border-radius: 50%;
     z-index: 0;
-    height: 400px;
+    max-width: 35vw;
 }
 
 .links{
@@ -41,4 +41,16 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+}
+
+@media screen and (max-width: 930px) {
+    .contenedorAbout{
+        flex-direction: column-reverse;
+    }
+
+    .contenedorAbout img{
+        border-radius: 50%;
+        z-index: 0;
+        max-width: 90vw;
+    }
 }

@@ -6,8 +6,9 @@ import barcode from './barcode.png'
 import PreLoader2 from '../PreLoader/PreLoader2';
 
 export default function Detail(){
-    const [loading,setLoading] = useState(false); //?Preloader
+    const [loading,setLoading]     = useState(false); //?Preloader
     const [character,setCharacter] = useState([]);
+
     const {id} = useParams();
 
     useEffect(() => {
@@ -28,9 +29,9 @@ export default function Detail(){
         return setCharacter({});
      }, [id]);
 
-    let firma = String(character?.name);
+    let firma       = String(character?.name);
     let firmaActual = firma.split(" ") 
-    let firmaFinal = '';
+    let firmaFinal  = '';
 
     return(
         <>

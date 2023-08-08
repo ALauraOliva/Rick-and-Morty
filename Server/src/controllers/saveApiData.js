@@ -2,7 +2,6 @@ const axios = require('axios');
 const {Character} = require('../models/Character')
 
 const getApiData = async() => {
-    console.log(Character)
     try {
         let i = 1;
         let characters = [];
@@ -33,9 +32,8 @@ const getApiData = async() => {
 
 const saveApiData = async() => {
     try {
-        const allCharacters = await getApiData(); //array de objetos
+        const allCharacters = await getApiData();
         const createCharacters = await Character.bulkCreate(allCharacters)
-        //bulkcreate nos permite pasar una rray de objetos y los creaaa cada uno en la DB
     } catch (error) {
         return{error:error.message}
     }

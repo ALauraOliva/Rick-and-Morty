@@ -10,7 +10,7 @@ button{
     position: absolute;
     width: 98%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin: 0.7%;
     opacity: 0.7;
 }

@@ -2,7 +2,6 @@
 
 const login = (req, res) => {
     const {email, password} = req.query;
-    console.log('sien t')
     const userFound = true;//user.find((user)=> "andrea_carol00@hotmail.com" ===email && "laulauh231" === password )
 
     userFound

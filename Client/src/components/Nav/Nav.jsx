@@ -5,11 +5,10 @@ import RickAndMortyLogoNav from './RickandMortyLogo.png';
 import audio from './ThemeSong.mp3';
 
 export default function Nav({onSearch,setAccess}){
-    const navigate = useNavigate()
-
     const handleLogOut = () =>{
         setAccess(false)
     }
+    
     return(
         <>
             <div key="1" className={styledNav.song}>

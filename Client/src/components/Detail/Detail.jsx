@@ -6,22 +6,16 @@ import barcode from './barcode.png'
 import PreLoader2 from '../PreLoader/PreLoader2';
 
 export default function Detail(){
-    const [loading,setLoading]     = useState(false); //?Preloader
+    const [loading,setLoading]     = useState(true); //?Preloader
     const [character,setCharacter] = useState([]);
 
     const {id} = useParams();
 
     useEffect(() => {
-        setLoading(true)
-        setTimeout(() => {
-           setLoading(false)
-        },1000)
-     }, [])
-
-    useEffect(() => {
         axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
            if (data.name) {
               setCharacter(data);
+              setLoading(false);
            } else {
               window.alert('No hay personajes con ese ID');
            }

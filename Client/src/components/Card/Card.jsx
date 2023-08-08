@@ -1,9 +1,9 @@
 import styleCard from './Card.module.css'
-import {NavLink} from 'react-router-dom'
-import {addFav, removeFav} from '../../redux/actions'
-import {connect} from 'react-redux'
-import {useState, useEffect} from 'react'
-//*❤️‍🔥❤️*/
+import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { addFav, removeFav } from '../../redux/actions'
+
 export function Card({id,name,status,species,gender,origin,image,onClose, addFav, removeFav, myFavorites}) {
    
    const [isFav, setIsFav] = useState(false);

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import {useLocation} from 'react-router-dom';
 
 export default function SearchBar({onSearch}) {
-   const location = useLocation();
+   const location   = useLocation();
    const [id,setId] = useState('');
 
    const handleChange = (event) =>{
@@ -14,7 +14,7 @@ export default function SearchBar({onSearch}) {
 
    return (    
       <>
-         {location.pathname === '/Home' && <input className={styledSearchBar.inputSearch}onChange = {handleChange} value={id} placeholder='  Search a character ... '></input>}
+         {location.pathname === '/Home' && <input className={styledSearchBar.inputSearch}onChange = {handleChange} value={id} placeholder='  Search a character by ID '></input>}
          {location.pathname === '/Home' && <button className={styledSearchBar.button_text} onClick={() =>{onSearch(id); setId('')}}>+</button>}
          {location.pathname === '/Home' && <button className={styledSearchBar.button_text} onClick={() =>{onSearch(idRandom); setId('')}}>🔀</button>}
       </>

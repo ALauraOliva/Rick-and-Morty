@@ -1,28 +1,27 @@
 import './App.css';
+import axios from 'axios';
 import Cards from './components/Cards/Cards.jsx'
 import Nav from './components/Nav/Nav.jsx'
-import { useEffect, useState} from 'react';
-import axios from 'axios';
-import {Route, Routes, useLocation, useNavigate} from 'react-router-dom'
 import About from './components/About/About'
 import Detail from './components/Detail/Detail'
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
+import { useEffect, useState} from 'react';
+import {Route, Routes, useLocation, useNavigate} from 'react-router-dom'
 
 const URL = 'http://localhost:3001/rickandmorty/login/';
 
 function App() {
    const location = useLocation();
    const navigate = useNavigate();
-   //todo: Creando estado caracters-array
+
    let [characters,setCharacters] = useState([]); 
-   const [access, setAccess] = useState(false);
+   const [access, setAccess]      = useState(false);
 
    const login = async(userData) => {
       try {
          const { email, password } = userData;
          const data = await axios(URL + `?email=${email}&password=${password}`)
-         // const { access } = data; //!no sigue acces sigue data
          const access = data.data.access;
          console.log(data)
          setAccess(access);
@@ -34,7 +33,7 @@ function App() {
 
    useEffect(() => {
       //eslint-disable-next-line
-      !access && navigate('/')  //ESTA EN PRUEBA
+      !access && navigate('/')
    },[access])
 
    const onSearch = async(id) => {

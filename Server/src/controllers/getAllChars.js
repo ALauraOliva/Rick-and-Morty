@@ -2,6 +2,7 @@ const {Character} = require('../models/Character')
 const sequelize= require('../DB_connection');
 
 const getAllChars = async() =>{
+
     try {
 
         const allCharacters = await sequelize.Character.findAll();

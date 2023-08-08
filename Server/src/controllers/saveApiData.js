@@ -2,6 +2,7 @@ const axios = require('axios');
 const {Character} = require('../models/Character')
 
 const getApiData = async() => {
+    console.log(Character)
     try {
         let i = 1;
         let characters = [];

@@ -7,10 +7,9 @@ const postFav = async(character) => {
     try {
         const {name,status,species,gender,origin,image} = character;
         
-        if(!name || !status || !species ||!gender ||!origin|| !image) throw new Error('Faltan datos obligatorios')
+        if(!name || !status || !species || !gender || !origin|| !image) throw new Error('Faltan datos obligatorios')
 
-        const newFav = {name, status,species,gender,origin,image}
-        console.log(sequelize.Favorite)
+        const newFav = {name, status, species, gender, origin, image}
         await sequelize.Favorite.create(newFav);
 
         return newFav;

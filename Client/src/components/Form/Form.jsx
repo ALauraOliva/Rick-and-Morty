@@ -3,7 +3,8 @@ import validation from "../Validation/Validation"
 import styledForm from "./Form.module.css"
 import loginLogo2 from "./login2.png"
 
-const Form = ({login}) =>{
+const Form = ({ login }) =>{
+
     const [errors, setErrors]     = useState({})
     const [userData, setUserData] = useState({
         email    : '',
@@ -11,8 +12,8 @@ const Form = ({login}) =>{
     })
 
     const handleSubmit = (event) =>{
-        event.preventDefault(); //sin esto la pagina se recarga cuando le damos a submit
-        login(userData)
+        event.preventDefault();
+        login(userData);
     }
 
     const handleChange = (event)=>{
@@ -25,12 +26,12 @@ const Form = ({login}) =>{
         }))
     }
 
-    return( //!El 'htmlFor' referencia al input ,, le ponemos name=email al input y lo que escirba el user se ve reflejado en htmlFor
+    return(
     
         <div className={styledForm.formContenedor}>
             
             <form className={styledForm.login} onSubmit={handleSubmit}>
-                <img src={loginLogo2}/>
+                <img src={loginLogo2} alt=""/>
                 <div className={styledForm.containerLabelsGlobal}>
 
                     <div className={styledForm.containerLabels}>

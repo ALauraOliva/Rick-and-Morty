@@ -1,10 +1,8 @@
-import {ADD_FAV, REMOVE_FAV, FILTER, ORDER} from './action-types'
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from './action-types'
 import axios from 'axios'
-//todo ACTIONS >>> funciones que retornan objetos
 
 
 export const addFav = (character) => {
-    // return {type: ADD_FAV, payload: character}
     const endpoint = 'http://localhost:3001/rickandmorty/fav';
     return async (dispatch) => {
       try {
@@ -25,8 +23,6 @@ export const addFav = (character) => {
 }
 
 export const removeFav = (id) => {
-    // return {type: REMOVE_FAV, payload: id}
-
     const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
       return async (dispatch) => {
          try {

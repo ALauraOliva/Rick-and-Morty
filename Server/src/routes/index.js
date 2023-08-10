@@ -7,6 +7,7 @@ const getAllFavorites = require('../controllers/getAllFavorites')
 const deleteFavoriteById = require('../controllers/deleteFavoriteById')
 const {postFav, deleteFav} = require('../controllers/handleFavorites')
 
+
 router.get('/character/:id', (req,res) =>{
     getCharById(req, res)
 })
@@ -19,6 +20,10 @@ router.delete('/fav/:id', (req,res) =>{
     deleteFav(req,res)
 })
 
+router.post('/logIn', (req,res) =>{
+    console.log('llegue hasta aqui');
+    login(req, res)
+})
 router.get('/allCharacters', async(req,res) => {
     try {
         
@@ -42,11 +47,6 @@ router.get('/allCharacters', async(req,res) => {
 //         return res.status(404).send(error.message)
 //     }
 // })
-
-router.get('/login', (req,res) =>{ //? O TAMBIEN  router.get('/login',login);
-    login(req, res)
-})
-
 
 
 router.post('/fav', async (req,res) =>{

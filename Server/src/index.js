@@ -3,8 +3,8 @@ const server = express();
 const router = require('./routes/index')
 const PORT = 3001;
 const morgan = require('morgan')
-const {sequelize} = require('./DB_connection')
-const {saveApiData} = require('./controllers/saveApiData')
+const { sequelize }   = require('./DB_connection')
+const { saveApiData } = require('./controllers/saveApiData')
 
 server.use(express.json());
 server.use(morgan('dev'));

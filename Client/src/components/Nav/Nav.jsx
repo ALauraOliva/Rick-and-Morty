@@ -42,6 +42,5 @@ export default function Nav({onSearch,setAccess}){
                 </div>
             </div>
         </>
-        
     );
 }

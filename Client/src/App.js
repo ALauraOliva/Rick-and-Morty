@@ -9,8 +9,6 @@ import Favorites from './components/Favorites/Favorites';
 import { useEffect, useState} from 'react';
 import {Route, Routes, useLocation, useNavigate} from 'react-router-dom'
 
-const URL = 'http://localhost:3001/rickandmorty/login/';
-
 function App() {
    const location = useLocation();
    const navigate = useNavigate();
@@ -18,23 +16,23 @@ function App() {
    let [characters,setCharacters] = useState([]); 
    const [access, setAccess]      = useState(false);
 
-   const login = async(userData) => {
+   useEffect(() => {
+      access && navigate('/Home')
+   },[access])
+
+   const login = async (userData) => {
       try {
-         const { email, password } = userData;
-         const data = await axios(URL + `?email=${email}&password=${password}`)
-         const access = data.data.access;
-         console.log(data)
-         setAccess(access);
-         access && navigate('/Home');
+         const { data } = await axios.post ('http://localhost:3001/rickandmorty/logIn', userData);
+
+         setAccess(data.access)
+
+         if(data.error) throw Error(data.error)
+
       } catch (error) {
-         console.log(error.message)
+
+         alert(`Error: ${error.response.data.error}`);
       }
    }
-
-   useEffect(() => {
-      //eslint-disable-next-line
-      !access && navigate('/')
-   },[access])
 
    const onSearch = async(id) => {
       try {
@@ -71,7 +69,7 @@ function App() {
             location.pathname !== '/' && <Nav onSearch={onSearch} setAccess={setAccess}/>
          }
          <Routes>
-            <Route path={'/'} element={<Form login = {login}/>} />
+            <Route path={'/'} element={<Form login = {login} />} />
             <Route path={'/Home'} element={<Cards characters={characters} onClose={onClose} />}/>
             <Route path={'/About'} element={<About/>}/>
             <Route path={'/Detail/:id'} element={<Detail/>}/>

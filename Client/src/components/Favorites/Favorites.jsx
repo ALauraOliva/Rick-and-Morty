@@ -14,7 +14,6 @@ const Favorites = ({ myFavorites }) => {
         dispatch(filterCards(event.target.value))
     }
 
-
     return(
         <>
             <div className={styleFavs.contenedorGlobalFavs}> 
@@ -36,29 +35,26 @@ const Favorites = ({ myFavorites }) => {
                 </div>
             </div>
 
-                <div className={styleFavs.container_Grid_Favs}>
-                    {
-                        myFavorites?.map(fav =>{
-                            return(
-                                <Card
-                                key = {fav.id}
-                                id  = {fav.id}
-                                name = {fav.name}
-                                status = {fav.status}
+            <div className={styleFavs.container_Grid_Favs}>
+                {
+                    myFavorites?.map(fav =>{
+                        return(
+                            <Card
+                                key     = {fav.id}
+                                id      = {fav.id}
+                                name    = {fav.name}
+                                status  = {fav.status}
                                 species = {fav.species}
-                                gender = {fav.gender}
-                                origin = {fav.origin}
-                                image = {fav.image}
+                                gender  = {fav.gender}
+                                origin  = {fav.origin}
+                                image   = {fav.image}
                             />
-                            )
-                        })
-                    }
-                </div>
-            
+                        )
+                    })
+                }
+            </div>
         </>
-        
     )
-
 }
 
 const mapStateToProps = (state) => {

@@ -1,14 +1,14 @@
-// const user = require('../utils/users')
-
 const login = (req, res) => {
-    const {email, password} = req.query;
-    const userFound = true;//user.find((user)=> "andrea_carol00@hotmail.com" ===email && "laulauh231" === password )
+    const userData = req.body;
 
-    userFound
-    ? res.status(200).json({access : true}) 
-    : res.status(404).json({access : false}) 
+    if (userData.email === "test@gmail.com" && userData.password === "123abc") {
+        res.status(200).json({ access: true });
+    } else {
+        res.status(401).json({ error: "Acceso Denegado",
+                               access: false });
+    }
 }
 
 module.exports = {
     login
-}
+};

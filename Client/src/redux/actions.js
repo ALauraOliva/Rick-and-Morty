@@ -1,45 +1,45 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from './action-types'
 import axios from 'axios'
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS } from './action-types'
+const URL = "http://localhost:3001/rickandmorty";
 
+export const getAllCharacters = () => {
+   return async (dispatch) => {
+      try {
+         const { data } = await axios.get(`${URL}/allCharacters`);
+         return dispatch({type : GET_ALL_CHARACTERS, payload: data})
+         
+      } catch (error) {
+         alert("error: " + error.response.data.error)
+      }
+   }
+}
 
 export const addFav = (character) => {
-    const endpoint = 'http://localhost:3001/rickandmorty/fav';
+   console.log(character);
     return async (dispatch) => {
       try {
-         const {data} = await axios.post(endpoint, character)
+         const { data } = await axios.post(`${URL}/fav`, character)
          
-         if(!data.length) throw Error('No hay favoritos')
-
-         return dispatch({
-            type: ADD_FAV,
-            payload: data,
-         });
-
+         if(!data.length) throw Error(data.error)
+         return dispatch({type: ADD_FAV, payload: data});
       } catch (error) {
-         console.log(error.message)
-      }
-       
+         console.log(error);
+         alert("error: " + error.response.data)
+      } 
     };
 }
 
 export const removeFav = (id) => {
-    const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
-      return async (dispatch) => {
-         try {
-            const {data} = await axios.delete(endpoint)
-            
-            // if(!data.length) throw Error('No hay favoritos')
+   return async (dispatch) => {
+      try {
+         const { data } = await axios.delete(`${URL}/fav/${id}`)
 
-            return dispatch({
-               type: REMOVE_FAV,
-               payload: data,
-            });
+         return dispatch({ type: REMOVE_FAV, payload: data });
 
-         } catch (error) {
-            console.log(error.message)
-         }
-         
-      };
+      } catch (error) {
+         console.log(error.message)
+      }
+   };
 }
 
 export const filterCards = (gender) => {

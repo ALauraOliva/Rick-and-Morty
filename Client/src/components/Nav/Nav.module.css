@@ -70,6 +70,25 @@ audio{
   transition: all 0.5s;
 }
 
+.logout{
+    font-family: Patrick Hand;
+    font-size: 40px;
+    text-decoration: none; /*?Para quitarle el subrayado o tachados por ser enlace que tiene*/
+    color: #BEDD3E;
+    text-shadow:2px 1px #42B4CA;
+}
+
+.logout:hover{
+    background-color: #42B4CA; /*!o este color 7AC71D*/
+    color: #ffff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    
+    transition: all 0.5s;
+  }
+
 @media screen and (min-width: 451px) and (max-width: 1230px) {
     .containerNav{ /*?Container Principal*/
         padding: 3% 3% 0 3% ;
@@ -103,6 +122,10 @@ audio{
     }
 
     .Nav a{ /*?El texto de los enlaces*/
+        font-size: 20px;
+        text-shadow:1px 1px #42B4CA;
+    }
+    .logout{ /*?El texto de los enlaces*/
         font-size: 20px;
         text-shadow:1px 1px #42B4CA;
     }

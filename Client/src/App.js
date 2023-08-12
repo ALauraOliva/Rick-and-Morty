@@ -6,8 +6,8 @@ import About from './components/About/About'
 import Detail from './components/Detail/Detail'
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
-import { useEffect, useState} from 'react';
-import {Route, Routes, useLocation, useNavigate} from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 
 function App() {
    const location = useLocation();
@@ -17,9 +17,9 @@ function App() {
    const [access, setAccess]      = useState(false);
 
    useEffect(() => {
-      access && navigate('/Home')
-   },[access])
-
+      !access && navigate('/')
+   },[access, navigate])
+   
    const login = async (userData) => {
       try {
          const { data } = await axios.post ('http://localhost:3001/rickandmorty/logIn', userData);
@@ -59,17 +59,17 @@ function App() {
    return (
       <div id='AppContainer'>
          <div id='stars'>
-                  <div id='stars2'>
-                     <div id='stars3'>
-                        
-                     </div>
-                  </div>
-               </div>
+            <div id='stars2'>
+               <div id='stars3'/>
+            </div>
+         </div>
+
          {
             location.pathname !== '/' && <Nav onSearch={onSearch} setAccess={setAccess}/>
          }
+
          <Routes>
-            <Route path={'/'} element={<Form login = {login} />} />
+            <Route path={'/'} element={<Form login = {login} access={access} />} />
             <Route path={'/Home'} element={<Cards characters={characters} onClose={onClose} />}/>
             <Route path={'/About'} element={<About/>}/>
             <Route path={'/Detail/:id'} element={<Detail/>}/>

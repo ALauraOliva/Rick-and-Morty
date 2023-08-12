@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { addFav, removeFav } from '../../redux/actions'
 
-export function Card({id,name,status,species,gender,origin,image,onClose, addFav, removeFav, myFavorites}) {
+export function Card({ id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites }) {
    
    const [isFav, setIsFav] = useState(false);
 
@@ -13,8 +13,8 @@ export function Card({id,name,status,species,gender,origin,image,onClose, addFav
          setIsFav(false);
          removeFav(id)
       }else{
+         addFav({ id, name, status, species, gender, origin, image })
          setIsFav(true)
-         addFav({id,name,status,species,gender,origin,image})
       }
    }
 
@@ -51,7 +51,10 @@ export function Card({id,name,status,species,gender,origin,image,onClose, addFav
                <div className={styleCard.image_overlay}>
                   <div className={styleCard.image_buttons}>
                      <button onClick={handleFavorite} className={styleCard.buttonFav}>{isFav ? '❤️‍🔥':'🤍'}</button> 
-                     <button onClick={()=>onClose(id)} className={styleCard.buttonClose}>☠️</button>
+                     {
+                        onClose &&
+                        <button onClick={()=>onClose(id)} className={styleCard.buttonClose}>☠️</button>
+                     }
                      <NavLink className={styleCard.NavLink} to={`/Detail/${id}`}>
                         <p>Know More ...</p>
                      </NavLink>

@@ -1,37 +1,46 @@
 const {login} = require('../controllers/login')
 const {getCharById} = require('../controllers/getCharById')
 const getAllChars = require('../controllers/getAllChars') 
-// const postFav = require('../controllers/postFav')
 const router = require('express').Router();
 const getAllFavorites = require('../controllers/getAllFavorites')
 const deleteFavoriteById = require('../controllers/deleteFavoriteById')
 const {postFav, deleteFav} = require('../controllers/handleFavorites')
 
 
-router.get('/character/:id', (req,res) =>{
-    getCharById(req, res)
-})
 
-router.post('/fav', (req,res) =>{
-    postFav(req,res)
-})
-
-router.delete('/fav/:id', (req,res) =>{
-    deleteFav(req,res)
-})
-
-router.post('/logIn', (req,res) =>{
-    console.log('llegue hasta aqui');
-    login(req, res)
-})
-router.get('/allCharacters', async(req,res) => {
+router.post('/fav', async(req, res) =>{
     try {
-        
-        const allCharacters = await getAllChars();
+        const newFav = await postFav(req, res);
 
-        res.status(200).json(allCharacters)
+        if(newFav.error) throw Error(newFav.error)
+
+        return res.status(200).json(newFav)
     } catch (error) {
-        res.status(404).send('ddd')
+        return res.status(404).json(`Error: ${error}`)
+    }
+})
+
+
+router.post('/logIn', async(req,res) =>{
+    try {
+        const access = await login(req, res)
+
+        if(access.error) throw Error(access.error)
+
+        return res.status(200).json(access)
+    } catch (error) {
+        return res.status(404).json(`Error: ${error}`)
+    }
+})
+
+router.get('/allCharacters', async(_req,res) => {
+    try {
+        const allCharacters = await getAllChars();
+        if(allCharacters.error) throw Error(allCharacters.error)
+
+        return res.status(200).json(allCharacters)
+    } catch (error) {
+        return res.status(400).json(`Error: ${error.message}`)
     }
 })
 
@@ -48,18 +57,6 @@ router.get('/allCharacters', async(req,res) => {
 //     }
 // })
 
-
-router.post('/fav', async (req,res) =>{
-    try {
-        const characterFav = await postFav(req.body)
-
-        if(characterFav.error) throw new Error(characterFav.error)
-        res.status(200).json(characterFav)
-    } catch (error) {
-        res.status(404).send(error.message)
-    }
-})
-
 router.delete('/fav/:id', async (req,res) =>{
     try {
         const {id} = req.params;    
@@ -67,10 +64,23 @@ router.delete('/fav/:id', async (req,res) =>{
 
         if(deleteFavorite.error) throw new Error(deleteFavorite.error)
 
-        res.status(200).json(deleteFavorite)
+        return res.status(200).json(deleteFavorite)
     } catch (error) {
-        res.status(404).send(error.message)
+        return res.status(404).send(error.message)
     }
 })
+
+router.get('/character/:id', async (req,res) =>{
+    try {
+        const char = await getCharById(req, res)
+
+        if(char.error) throw Error(char.error)
+        console.log(char);
+        return res.status(200).json(char)
+    } catch (error) {
+        return res.status(404).json(`Error: ${error}`)
+    }
+})
+
 
 module.exports = router;

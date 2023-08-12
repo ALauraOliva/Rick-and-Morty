@@ -6,10 +6,10 @@ const postFav = (req, res) => {
 
     if(!characterFound) {
         myFavorites.push(character);
-        return res.status(200).json(myFavorites)
+        return (myFavorites)
     }
 
-    return res.status(404).send('Ya existe ese personaje en favoritos');
+    return {error: 'Ya existe ese personaje en favoritos'};
 }
 
 const deleteFav = (req, res) => {
@@ -18,7 +18,7 @@ const deleteFav = (req, res) => {
     myFavorites = myFavorites.filter((favorite) => 
     favorite.id !== +id)
 
-    return res.status(200).json(myFavorites)
+    return (myFavorites)
 }
 
 module.exports = {

@@ -1,16 +1,21 @@
-const Favorite = require('../models/Favorite')
+const { Favorite } = require('../DB_connection')
 const sequelize= require('../DB_connection');
 
-
-const postFav = async(character) => {
-    
+const postFav = async(req, res) => {
     try {
-        const {name,status,species,gender,origin,image} = character;
-        
-        if(!name || !status || !species || !gender || !origin|| !image) throw new Error('Faltan datos obligatorios')
+        const { id, name, status, species, gender, origin, image } = req.body;
+        console.log('emtre');
+        if(!id || !name || !status || !species || !gender || !origin || !image) throw new Error('Faltan datos obligatorios')
 
-        const newFav = {name, status, species, gender, origin, image}
-        await sequelize.Favorite.create(newFav);
+        const newFav = await Favorite.create({ 
+            id      : id, 
+            name    : name, 
+            status  : status, 
+            species : species, 
+            gender  : gender, 
+            origin  : origin, 
+            image   : image, 
+        });
 
         return newFav;
 
@@ -19,4 +24,6 @@ const postFav = async(character) => {
     }
 }
 
-module.exports = postFav;
+module.exports = {
+    postFav
+};

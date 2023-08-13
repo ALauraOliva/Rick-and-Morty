@@ -1,10 +1,10 @@
-const {login} = require('../controllers/login')
-const {getCharById} = require('../controllers/getCharById')
-const getAllChars = require('../controllers/getAllChars') 
 const router = require('express').Router();
-const { getAllFavorites } = require('../controllers/getAllFavorites')
+const getAllChars = require('../controllers/getAllChars') 
 const deleteFavoriteById = require('../controllers/deleteFavoriteById')
-const {postFav} = require('../controllers/postFav')
+const { login } = require('../controllers/login')
+const { getCharById } = require('../controllers/getCharById')
+const { getAllFavorites } = require('../controllers/getAllFavorites')
+const { postFav } = require('../controllers/postFav')
 
 router.post('/fav', async(req, res) => {
     try {
@@ -17,7 +17,6 @@ router.post('/fav', async(req, res) => {
         return res.status(400).json(`${error}`)
     }
 })
-
 
 router.post('/logIn', async(req,res) =>{
     try {
@@ -78,6 +77,5 @@ router.get('/character/:id', async (req,res) =>{
         return res.status(404).json(`Error: ${error}`)
     }
 })
-
 
 module.exports = router;

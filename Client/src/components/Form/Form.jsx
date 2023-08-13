@@ -30,25 +30,22 @@ const Form = ({ login, access }) =>{
     }
 
     return(
-    
-        <div className={styledForm.formContenedor}>
-            
+        <div className={styledForm.formContenedor}>        
             <form className={styledForm.login} onSubmit={handleSubmit}>
                 <img src={loginLogo2} alt=""/>
                 <div className={styledForm.containerLabelsGlobal}>
 
                     <div className={styledForm.containerLabels}>
                         <label htmlFor="email">Email:</label>
-                        <input className={styledForm.inputt} type="text" name="email" value={userData.email} onChange={handleChange} ></input>
-                        
+                        <input className={styledForm.inputt} type="text" name="email" value={userData.email} onChange={handleChange}></input>
                     </div>
-                    {errors.email && <p style={{color:"white"}}>{errors.email}</p>}
+                    {errors.email && <p style={{color:"white"}}> {errors.email} </p>}
 
                     <div className={styledForm.containerLabels}>
                         <label htmlFor="password">Password:</label>
-                        <input className={styledForm.inputt} type="password" name="password" value={userData.password} onChange={handleChange} ></input>                   
+                        <input className={styledForm.inputt} type="password" name="password" value={userData.password} onChange={handleChange}></input>                   
                     </div>
-                    {errors.password && <p style={{color:"white"}}>{errors.password }</p>}
+                    {errors.password && <p style={{color:"white"}}> {errors.password } </p>}
 
                     <button type="Submit">Login</button>
                     

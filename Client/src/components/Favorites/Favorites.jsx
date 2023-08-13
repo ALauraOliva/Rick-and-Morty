@@ -5,9 +5,8 @@ import { filterCards, orderCards } from '../../redux/actions'
 import { useState } from "react";
 
 export default function Favorites(){
-    const [aux, setAux] = useState(false);
-
     const dispatch    = useDispatch()
+    const [aux, setAux] = useState(false);
     const dynamicChars = useSelector((state) => state.dynamicChars)
 
     const handleOrder = (event) =>{

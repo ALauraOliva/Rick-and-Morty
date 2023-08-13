@@ -9,7 +9,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case ADD_FAV:
-            console.log(action.payload);
             return{
                 ...state,
                 dynamicChars : state.myFavorites.concat(action.payload),
@@ -24,10 +23,9 @@ const reducer = (state = initialState, action) => {
             }
 
         case REMOVE_CHAR:
-            //const filterRemove = state.allCharsHome.filter(char => char.id != action.payload)
             return{
                 ...state,
-                allCharsHome : state.allCharsHome.filter(char => char.id != action.payload)
+                allCharsHome : state.allCharsHome.filter(char => char.id !== action.payload)
             }
         
         case FILTER:

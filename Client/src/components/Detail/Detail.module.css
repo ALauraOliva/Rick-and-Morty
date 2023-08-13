@@ -15,7 +15,7 @@
   src: url("./OldNewspaperTypes.ttf");
 }
 
-.contenedorDetail{
+.contenedorDetail {
   margin: 40px 0 40px 0 ;
   display: flex;
   flex-direction: column;
@@ -40,8 +40,7 @@
   padding: 10px;
 }
 
-.figuraContenedor * { /*Solo indico que el contenido el sizing que yo coloco se calcule restando el paddign yd emas*/
-  /* -webkit-box-sizing: border-box; */
+.figuraContenedor * {
   box-sizing: border-box;
   position: relative;
 } 
@@ -55,16 +54,16 @@
   font-family: detailFont;
 }
 
-.figuraContenedor h2{
+.figuraContenedor h2 {
   text-align: left;
-  padding: 10px 0 0 17px; /*top right bottom left*/
+  padding: 10px 0 0 17px;
   color: #000000;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   margin: 0px 0px 8px 0px;
 }
 
-.figuraContenedor .title { /*Esto es para el la parte de abajo del div */
+.figuraContenedor .title {
   height: fit-content;
   border-width: 10px 10px 10px 10px;
   border-color: #ffffff;
@@ -77,14 +76,14 @@
   background-color: #A1BE3F;
 }
 
-.contenidoContenedor{
+.contenidoContenedor {
   display: flex;
   justify-content: space-between;
   padding: 8px;
   align-items: center;
 }
 
-.SignatureContenedor { /*Esto es para el la parte de abajo del div */
+.SignatureContenedor {
   height: 70px;
   width: 50%;
   border-width: 10px 10px 10px 10px;
@@ -101,7 +100,7 @@
   align-items: center;
 }
 
-.SignatureContenedor p{ /*Esto es para el la parte de abajo del div */
+.SignatureContenedor p {
   font-size: 15px;
   font-family: detailFont;
   color: #000000;
@@ -111,7 +110,7 @@
   float: left;
 }
 
-.SignatureContenedor div{ /*Esto es para el la parte de abajo del div */
+.SignatureContenedor div {
   font-size: 60px;
   font-family: signatureFont;
   color: #000000;
@@ -121,19 +120,19 @@
   float: left;
 }
 
-.footerContenedor{
+.footerContenedor {
   display: flex;
   justify-content: space-evenly;
   gap: 10px;
 }
 
-.footerContenedor img{
+.footerContenedor img {
   width:45%;
   height: 70px;
 }
 
 @media screen and (max-width: 712px) {
-  .contenidoContenedor{
+  .contenidoContenedor {
     flex-direction: column-reverse;
   }
 
@@ -142,19 +141,19 @@
     width: 80vw;
   }
 
-  .figuraContenedor .title  { /*Esto es para el la parte de abajo del div */
+  .figuraContenedor .title {
     font-size: 20px;
   }
 
-  .figuraContenedor h2{
+  .figuraContenedor h2 {
     font-size: 17px;
   }
 
-  .SignatureContenedor p{ /*Esto es para el la parte de abajo del div */
+  .SignatureContenedor p {
     font-size: 8px;
   }
   
-  .SignatureContenedor div{ /*Esto es para el la parte de abajo del div */
+  .SignatureContenedor div {
     font-size: 20px;
   }
 

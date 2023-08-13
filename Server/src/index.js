@@ -1,8 +1,8 @@
 const express = require('express')
+const morgan = require('morgan')
 const server = express();
 const router = require('./routes/index')
-const PORT = 3001;
-const morgan = require('morgan')
+const PORT   = 3001;
 const { sequelize }   = require('./DB_connection')
 const { saveApiData } = require('./controllers/saveApiData')
 

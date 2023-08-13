@@ -13,11 +13,10 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 
 function App() {
    const location = useLocation();
+   const dispatch = useDispatch();
    const navigate = useNavigate();
-   const dispatch             = useDispatch();
 
-   let [characters,setCharacters] = useState([]); 
-   const [access, setAccess]      = useState(false);
+   const [access, setAccess] = useState(false);
 
    useEffect(() => {
       !access && navigate('/')
@@ -26,13 +25,10 @@ function App() {
    const login = async (userData) => {
       try {
          const { data } = await axios.post ('http://localhost:3001/rickandmorty/logIn', userData);
-
          setAccess(data.access)
-
          if(data.error) throw Error(data.error)
-
+         
       } catch (error) {
-
          alert(`Error: ${error.response.data.error}`);
       }
    }

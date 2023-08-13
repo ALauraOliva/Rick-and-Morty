@@ -1,4 +1,4 @@
-.formContenedor{
+.formContenedor {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 
-.login{
+.login {
     display: flex;
     flex-direction: column;
     background: linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
@@ -22,11 +22,11 @@
     width: 400px;
 }
 
-.login img{
+.login img {
     width: 90%;
 }
 
-label{
+label {
     background-color: transparent;
     font-family: Patrick Hand;
     font-size: 30px;
@@ -36,8 +36,7 @@ label{
     text-shadow:2px 1px #42B4CA;
 }
 
-
-.inputt{
+.inputt {
     font-family: Patrick Hand ;
     font-size: 20px;
     color: white;
@@ -51,7 +50,7 @@ label{
     text-align: center;
 }
 
-.inputt:hover{
+.inputt:hover {
     font-family: Patrick Hand ;
     font-size: 20px;
     color: white;
@@ -60,7 +59,7 @@ label{
     transition: all 1s;
  }
 
-.login button{
+.login button {
     font-family: Patrick Hand ;
    font-size: 20px;
    color: white;
@@ -68,12 +67,12 @@ label{
    padding: 7px;
    border-radius: 10px;
 }
+
 .login button:hover {
     cursor: pointer;
 }
 
-
-.containerLabelsGlobal{
+.containerLabelsGlobal {
     display: flex;
     flex-direction: column;
     padding: 20px 0px 20px 0px;
@@ -82,7 +81,7 @@ label{
     width: 100%;
 }
 
-.containerLabels{
+.containerLabels {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -92,24 +91,24 @@ label{
     align-items: center;
 }
 
-.containerLabelsGlobal p{
+.containerLabelsGlobal p {
     font-family: Patrick Hand;
     font-size: large;
 }
 
 @media screen and (max-width: 334px) {
-    .login{
+    .login {
         width: 90vw;
         height: 75%;
         gap: 0px;
     }
 
-    .login img{
+    .login img {
         position: relative;
         top: -30px;
     }
 
-    .containerLabels{
+    .containerLabels {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -119,7 +118,7 @@ label{
         align-items: center;
     }
 
-    .containerLabelsGlobal{
+    .containerLabelsGlobal {
         display: flex;
         flex-direction: column;
         padding: 0 0 20px 0;

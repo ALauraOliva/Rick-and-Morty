@@ -1,6 +1,6 @@
 import Card from '../Card/Card.jsx';
 import styleCards from './Cards.module.css'
-import PreLoader1 from '../PreLoader/PreLoader.js'
+import PreLoader1 from '../PreLoader/PreLoader.jsx'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCharacters, getAllFavorites } from "../../redux/actions.js";
@@ -12,7 +12,6 @@ export default function Cards(props) {
 
    useEffect(() => { 
       if(allCharsHome.length === 0){
-         console.log('etre');
          dispatch(getAllCharacters());
          dispatch(getAllFavorites())
       }

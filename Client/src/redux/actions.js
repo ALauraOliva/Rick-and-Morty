@@ -15,7 +15,6 @@ export const getAllCharacters = () => {
 }
 
 export const getAllFavorites = () => {
-   console.log('entre aqui');
    return async (dispatch) => {
       try {
          const { data } = await axios.get(`${URL}/fav`);

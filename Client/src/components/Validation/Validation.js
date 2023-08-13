@@ -1,9 +1,7 @@
-//!Los estados no se importan ni se exportan,, pero se puede pasar por param
 export default function validation(userData){
-
     const errors = {};
+
     //?EMAIL ERRORS
-    
     if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(userData.email)){
         errors.email = 'El e-mail ingresado no es válido'
     }

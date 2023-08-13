@@ -6,8 +6,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Detail(){
-    const [loading,setLoading]     = useState(true); //?Preloader
-    const [character,setCharacter] = useState([]);
+    const [loading, setLoading]     = useState(true);
+    const [character, setCharacter] = useState([]);
 
     const {id} = useParams();
 
@@ -32,7 +32,7 @@ export default function Detail(){
             {
                 loading 
                 ?
-                    <PreLoader2/>
+                <PreLoader2/>
                 :
                 <div className={styleCard.contenedorDetail}>
                     <figure className={styleCard.figuraContenedor}>

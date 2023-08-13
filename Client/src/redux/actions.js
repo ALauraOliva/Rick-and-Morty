@@ -9,7 +9,7 @@ export const getAllCharacters = () => {
          return dispatch({type : GET_ALL_CHARACTERS, payload: data})
          
       } catch (error) {
-         alert("error: " + error.response.data.error)
+         alert("error: " + error.response.data)
       }
    }
 }
@@ -21,7 +21,7 @@ export const getAllFavorites = () => {
          return dispatch({type : GET_ALL_FAVS, payload: data})
          
       } catch (error) {
-         alert("error: " + error.response.data.error)
+         alert("error: " + error.response.data)
       }
    }
 }
@@ -48,7 +48,7 @@ export const removeFav = (id) => {
          return dispatch({ type: REMOVE_FAV, payload: data });
 
       } catch (error) {
-         console.log(error.message)
+         alert(error.response.data)
       }
    };
 }
@@ -61,10 +61,10 @@ export const searchById = (id) => {
    return async (dispatch) => {
       try {
          const { data } = await axios.get(`${URL}/character/${id}`)
-
          return dispatch({ type: SEARCH_BY_ID, payload: data });
+
       } catch (error) {
-         
+         alert(error.response.data)
       }
    }
 }

@@ -1,7 +1,6 @@
 const { Favorite } = require('../DB_connection')
 
 const getAllFavorites = async () => {
-    console.log('entred dbd ');
     try {
         const allFavorites = await Favorite.findAll();
 

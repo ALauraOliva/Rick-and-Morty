@@ -1,19 +1,30 @@
-const { Favorite } = require('../DB_connection')
+const URL = "https://rickandmortyapi.com/api/character";
+const axios = require("axios")
 
-const deleteFavoriteById = async(id) => {
+const getCharById = async (req, _res) => {
     try {
-        const favoriteFound = await Favorite.findByPk(id);
+        const {id} = req.params;
+        const {data} = await axios(`${URL}/${id}`)
 
-        if(!favoriteFound) throw new Error('No existe el favorito')
-
-        await favoriteFound.destroy();
+        if (!data.name) throw new Error (`ID ${id} NOT FOUND`)
         
-        let resultAll = await Favorite.findAll();
-        return resultAll;
+        const character = {
+            id: data.id,
+            status: data.status,
+            name: data.name,
+            species: data.species,
+            origin: data.origin,
+            image: data.image,
+            gender: data.gender
+        }
+        return character;
 
     } catch (error) {
-        return error.message;
+        return {error: error.message}   
     }
 }
 
-module.exports = deleteFavoriteById;
+
+module.exports = {
+    getCharById
+}

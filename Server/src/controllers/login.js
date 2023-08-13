@@ -1,11 +1,11 @@
-const login = (req, res) => {
+const login = (req, _res) => {
     const userData = req.body;
 
     if (userData.email === "test@gmail.com" && userData.password === "123abc") {
-       return { access: true };
+       return { access : true };
     } else {
-        return { error: "Acceso Denegado",
-                               access: false };
+        return { error  : "Denied Access",
+                 access : false };
     }
 }
 

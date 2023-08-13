@@ -6,27 +6,15 @@ const { getCharById } = require('../controllers/getCharById')
 const { getAllFavorites } = require('../controllers/getAllFavorites')
 const { postFav } = require('../controllers/postFav')
 
-router.post('/fav', async(req, res) => {
-    try {
-        const newFav = await postFav(req, res);
-        
-        if(newFav.error) throw Error(newFav.error)
 
-        return res.status(200).json(newFav)
-    } catch (error) {
-        return res.status(400).json(`${error}`)
-    }
-})
-
-router.post('/logIn', async(req,res) =>{
+router.post('/logIn', async(req, res) =>{
     try {
         const access = login(req, res)
-
         if(access.error) throw Error(access.error)
-
         return res.status(200).json(access)
+
     } catch (error) {
-        return res.status(404).json(`Error: ${error}`)
+        return res.status(401).send(error.message)
     }
 })
 
@@ -34,20 +22,31 @@ router.get('/allCharacters', async(_req,res) => {
     try {
         const allCharacters = await getAllChars();
         if(allCharacters.error) throw Error(allCharacters.error)
-
         return res.status(200).json(allCharacters)
+
     } catch (error) {
-        return res.status(400).json(`Error: ${error.message}`)
+        return res.status(400).send(error.message)
     }
 })
 
 router.get('/fav', async (_req, res) =>{
     console.log('entre a route index');
     try {
-       const allFavorites = await getAllFavorites();
-       console.log(allFavorites);
+        const allFavorites = await getAllFavorites();
         if(allFavorites.error) throw new Error(allFavorites.error)
         res.status(200).json(allFavorites)
+
+    } catch (error) {
+        return res.status(400).send(error.message)
+    }
+})
+
+router.post('/fav', async(req, res) => {
+    try {
+        const newFav = await postFav(req, res);
+        if(newFav.error) throw Error(newFav.error)
+        return res.status(200).json(newFav)
+    
     } catch (error) {
         return res.status(400).send(error.message)
     }
@@ -59,22 +58,21 @@ router.delete('/fav/:id', async (req,res) =>{
         const deleteFavorite = await deleteFavoriteById(parseInt(id));
 
         if(deleteFavorite.error) throw new Error(deleteFavorite.error)
-
         return res.status(200).json(deleteFavorite)
+
     } catch (error) {
-        return res.status(404).send(error.message)
+        return res.status(400).send(error.message)
     }
 })
 
 router.get('/character/:id', async (req,res) =>{
     try {
         const char = await getCharById(req, res)
-
         if(char.error) throw Error(char.error)
-
         return res.status(200).json(char)
+
     } catch (error) {
-        return res.status(404).json(`Error: ${error}`)
+        return res.status(400).send(error.message)
     }
 })
 

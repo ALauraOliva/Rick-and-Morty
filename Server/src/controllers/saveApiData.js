@@ -26,7 +26,7 @@ const getApiData = async() => {
         let allCharacters = [];
         characters.map(char =>{allCharacters.concat(char)})   
     } catch (error) {
-        return {error:error.message}
+        return {error : error.message}
     }
 }
 

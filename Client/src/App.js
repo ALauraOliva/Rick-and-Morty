@@ -26,10 +26,9 @@ function App() {
       try {
          const { data } = await axios.post ('http://localhost:3001/rickandmorty/logIn', userData);
          setAccess(data.access)
-         if(data.error) throw Error(data.error)
          
       } catch (error) {
-         alert(`Error: ${error.response.data.error}`);
+         alert(`Error: ${error.response.data}`);
       }
    }
 

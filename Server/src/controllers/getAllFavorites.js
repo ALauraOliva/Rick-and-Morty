@@ -1,17 +1,14 @@
-const Favorite = require('../models/Favorite')
-const sequelize= require('../DB_connection');
-
+const { Favorite } = require('../DB_connection')
 
 const getAllFavorites = async () => {
+    console.log('entred dbd ');
     try {
-        const allFavorites = await sequelize.Favorite.findAll();
-
-        if(!allFavorites) throw new Error('No hay favoritos')
+        const allFavorites = await Favorite.findAll();
 
         return allFavorites;
         
     } catch (error) {
-        return error.message; 
+        return {error:"No se pudo recuperar tus favoritos"}
     }
 }
 

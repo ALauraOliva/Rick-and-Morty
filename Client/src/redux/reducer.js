@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS, SEARCH_BY_ID } from "./action-types";
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS, SEARCH_BY_ID, GET_ALL_FAVS } from "./action-types";
 
 const initialState = {
     allCharsHome : [],
@@ -48,6 +48,12 @@ const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 allCharsHome : action.payload,
+            }
+
+        case GET_ALL_FAVS:
+            return{
+                ...state,
+                myFavorites : action.payload,
             }
 
         case SEARCH_BY_ID:

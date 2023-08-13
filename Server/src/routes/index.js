@@ -42,18 +42,17 @@ router.get('/allCharacters', async(_req,res) => {
     }
 })
 
-// router.get('/fav', async (req,res) =>{
-//     try {
-//         const allFavorites = await getAllFavorites();
-
-//         if(allFavorites.error) throw new Error(allFavorites.error)
-
-//         res.status(200).json(allFavorites)
-
-//     } catch (error) {
-//         return res.status(404).send(error.message)
-//     }
-// })
+router.get('/fav', async (_req, res) =>{
+    console.log('entre a route index');
+    try {
+       const allFavorites = await getAllFavorites();
+       console.log(allFavorites);
+        if(allFavorites.error) throw new Error(allFavorites.error)
+        res.status(200).json(allFavorites)
+    } catch (error) {
+        return res.status(400).send(error.message)
+    }
+})
 
 router.delete('/fav/:id', async (req,res) =>{
     try {

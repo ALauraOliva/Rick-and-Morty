@@ -3,10 +3,12 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { addFav, removeFav } from '../../redux/actions'
+import { useSelector } from 'react-redux';
 
-export function Card({ id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites }) {
+export function Card({ id, name, status, species, gender, origin, image, onClose, addFav, removeFav }) {
    
    const [isFav, setIsFav] = useState(false);
+   const myFavorites         = useSelector((state) => state.myFavorites)
 
    const handleFavorite = () => {
       if(isFav){

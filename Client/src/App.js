@@ -6,7 +6,7 @@ import About from './components/About/About'
 import Detail from './components/Detail/Detail'
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
-import { searchById } from './redux/actions';
+import { searchById, removeCharHome } from './redux/actions';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
@@ -42,8 +42,7 @@ function App() {
    }
    
    const onClose = (id)=>{
-      let EraseCharac = characters.filter((charac)=> charac.id !== Number(id));
-      setCharacters(EraseCharac);
+      dispatch(removeCharHome(id))
    }
    
    return (

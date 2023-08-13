@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS, SEARCH_BY_ID, GET_ALL_FAVS } from './action-types'
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS, SEARCH_BY_ID, GET_ALL_FAVS, REMOVE_CHAR } from './action-types'
 const URL = "http://localhost:3001/rickandmorty";
 
 export const getAllCharacters = () => {
@@ -52,6 +52,10 @@ export const removeFav = (id) => {
          console.log(error.message)
       }
    };
+}
+
+export const removeCharHome = (id) => {
+   return { type: REMOVE_CHAR, payload: id };
 }
 
 export const searchById = (id) => {

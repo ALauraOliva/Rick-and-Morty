@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS, SEARCH_BY_ID, GET_ALL_FAVS } from "./action-types";
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS, SEARCH_BY_ID, GET_ALL_FAVS, REMOVE_CHAR } from "./action-types";
 
 const initialState = {
     allCharsHome : [],
@@ -21,6 +21,13 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 myFavorites  : action.payload,
                 dynamicChars : action.payload
+            }
+
+        case REMOVE_CHAR:
+            //const filterRemove = state.allCharsHome.filter(char => char.id != action.payload)
+            return{
+                ...state,
+                allCharsHome : state.allCharsHome.filter(char => char.id != action.payload)
             }
         
         case FILTER:
@@ -53,7 +60,8 @@ const reducer = (state = initialState, action) => {
         case GET_ALL_FAVS:
             return{
                 ...state,
-                myFavorites : action.payload,
+                myFavorites  : action.payload,
+                dynamicChars : action.payload
             }
 
         case SEARCH_BY_ID:

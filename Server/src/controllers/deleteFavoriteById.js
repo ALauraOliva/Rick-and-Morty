@@ -6,9 +6,11 @@ const deleteFavoriteById = async(id) => {
 
         if(!favoriteFound) throw new Error('No existe el favorito')
 
-        favoriteFound.destroy();
+        await favoriteFound.destroy();
+        
+        let resultAll = await Favorite.findAll();
+        return resultAll;
 
-        return Favorite.findAll();
     } catch (error) {
         return error.message;
     }

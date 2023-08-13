@@ -2,7 +2,7 @@ const {login} = require('../controllers/login')
 const {getCharById} = require('../controllers/getCharById')
 const getAllChars = require('../controllers/getAllChars') 
 const router = require('express').Router();
-const getAllFavorites = require('../controllers/getAllFavorites')
+const { getAllFavorites } = require('../controllers/getAllFavorites')
 const deleteFavoriteById = require('../controllers/deleteFavoriteById')
 const {postFav} = require('../controllers/postFav')
 

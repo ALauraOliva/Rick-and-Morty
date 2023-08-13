@@ -6,12 +6,15 @@ import About from './components/About/About'
 import Detail from './components/Detail/Detail'
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
+import { searchById } from './redux/actions';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 
 function App() {
    const location = useLocation();
    const navigate = useNavigate();
+   const dispatch             = useDispatch();
 
    let [characters,setCharacters] = useState([]); 
    const [access, setAccess]      = useState(false);
@@ -34,21 +37,8 @@ function App() {
       }
    }
 
-   const onSearch = async(id) => {
-      try {
-         const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
-
-         if(data.name) {
-            let Existe = characters && characters.find(charac=> charac.id===Number(id));
-
-            Existe 
-            ? setCharacters([...characters]) 
-            : setCharacters((oldChars) => [...oldChars, data]);
-         }
-
-      } catch (error) {
-         alert('¡No hay personajes con este ID!')
-      }
+   const onSearch = (id) => {
+      dispatch(searchById(id))
    }
    
    const onClose = (id)=>{
@@ -70,7 +60,7 @@ function App() {
 
          <Routes>
             <Route path={'/'} element={<Form login = {login} access={access} />} />
-            <Route path={'/Home'} element={<Cards characters={characters} onClose={onClose} />}/>
+            <Route path={'/Home'} element={<Cards onClose={onClose} />}/>
             <Route path={'/About'} element={<About/>}/>
             <Route path={'/Detail/:id'} element={<Detail/>}/>
             <Route path={'/favorites'} element={<Favorites/>}/>

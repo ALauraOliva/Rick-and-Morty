@@ -16,7 +16,6 @@ const getCharById = async (req, res) => {
             image: data.image,
             gender: data.gender
         }
-        console.log(character);
         return character;
 
     } catch (error) {

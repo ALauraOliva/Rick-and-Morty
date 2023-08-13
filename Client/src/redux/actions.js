@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS } from './action-types'
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS, SEARCH_BY_ID } from './action-types'
 const URL = "http://localhost:3001/rickandmorty";
 
 export const getAllCharacters = () => {
@@ -15,16 +15,15 @@ export const getAllCharacters = () => {
 }
 
 export const addFav = (character) => {
-   console.log(character);
     return async (dispatch) => {
       try {
          const { data } = await axios.post(`${URL}/fav`, character)
          
-         if(!data.length) throw Error(data.error)
+         if(!data) throw Error(data.error)
+
          return dispatch({type: ADD_FAV, payload: data});
       } catch (error) {
-         console.log(error);
-         alert("error: " + error.response.data)
+         alert(error.response.data)
       } 
     };
 }
@@ -42,10 +41,22 @@ export const removeFav = (id) => {
    };
 }
 
+export const searchById = (id) => {
+   return async (dispatch) => {
+      try {
+         const { data } = await axios.get(`${URL}/character/${id}`)
+
+         return dispatch({ type: SEARCH_BY_ID, payload: data });
+      } catch (error) {
+         
+      }
+   }
+}
+
 export const filterCards = (gender) => {
     return {type: FILTER, payload: gender}
 }
 
 export const orderCards = (order) => {
-    return {type: ORDER, payload:order}
+    return {type: ORDER, payload: order}
 }

@@ -7,18 +7,18 @@ import { getAllCharacters } from "../../redux/actions.js";
 
 export default function Cards(props) {
    const dispatch             = useDispatch();
-   const dynamicChars         = useSelector((state) => state.dynamicChars)
+   const allCharsHome         = useSelector((state) => state.allCharsHome)
    const [loading,setLoading] = useState(true);
 
    useEffect(() => { 
-      dispatch(getAllCharacters());
-   }, [dispatch]);
-
-   useEffect(() => {
-      if(dynamicChars.length > 0) {
+      if(allCharsHome.length === 0){
+         dispatch(getAllCharacters());
+      }
+      
+      if(allCharsHome.length > 0) {
          setLoading(false);
       }
-  }, [dynamicChars])
+   }, [dispatch, allCharsHome]);
    
    return(
       <>
@@ -29,7 +29,7 @@ export default function Cards(props) {
             : 
             (
                <div className={styleCards.gridCards}>
-                  {dynamicChars.map(card => (
+                  {allCharsHome.map(card => (
                      <Card
                         key     = {card.id}
                         id      = {card.id}

@@ -1,48 +1,61 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS } from "./action-types";
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_ALL_CHARACTERS, SEARCH_BY_ID } from "./action-types";
 
 const initialState = {
-    allCharsHome     : [],
-    myFavorites      : [],
-    dynamicChars     : [],
+    allCharsHome : [],
+    myFavorites  : [],
+    dynamicChars : [],
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case ADD_FAV:
+            console.log(action.payload);
             return{
                 ...state,
-                myFavorites  :  state.myFavorites.concat(action.payload)
+                dynamicChars : state.myFavorites.concat(action.payload),
+                myFavorites  : state.myFavorites.concat(action.payload)
             }
             
         case REMOVE_FAV:
             return{
                 ...state,
-                myFavorites: action.payload
+                myFavorites  : action.payload,
+                dynamicChars : action.payload
             }
         
         case FILTER:
-            const allCharcatersFavFiltered = state.allCharcatersFav.filter(character => character.gender === action.payload)
+            const myFavoritesFil = state.myFavorites.filter(character => character.gender === action.payload)
         
             return{
                 ...state,
-                myFavorites : allCharcatersFavFiltered        
+                dynamicChars : 
+                action.payload === 'All'
+                ? [...state.myFavorites]
+                : myFavoritesFil        
             }    
         
         case ORDER:
-            const allCharcatersFavCopy = [...state.allCharcatersFav]
+            const myFavoritesOrder = state.dynamicChars ? state.dynamicChars : state.myFavorites;
             return{
                 ...state,
-                myFavorites :
+                dynamicChars :
                 action.payload === 'A'
-                ? allCharcatersFavCopy.sort((a,b) => a.id - b.id) 
-                : allCharcatersFavCopy.sort((a,b) => b.id - a.id)
+                ? myFavoritesOrder.sort((a,b) => a.id - b.id) 
+                : myFavoritesOrder.sort((a,b) => b.id - a.id)
             }
 
         case GET_ALL_CHARACTERS:
             return{
                 ...state,
                 allCharsHome : action.payload,
-                dynamicChars : action.payload,
+            }
+
+        case SEARCH_BY_ID:
+            const repeatValue = state.allCharsHome.find(charac=> charac.id===Number(action.payload.id));
+
+            return{
+                ...state,
+                allCharsHome : repeatValue ? [...state.allCharsHome] : [action.payload, ...state.allCharsHome]
             }
 
         default:

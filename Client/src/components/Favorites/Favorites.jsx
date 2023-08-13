@@ -1,14 +1,18 @@
 import Card from "../Card/Card"
 import styleFavs from './Favorites.module.css'
-import { connect, useDispatch, useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { filterCards, orderCards } from '../../redux/actions'
+import { useState } from "react";
 
 export default function Favorites(){
+    const [aux, setAux] = useState(false);
+
     const dispatch    = useDispatch()
-    const myFavorites = useSelector((state) => state.myFavorites)
+    const dynamicChars = useSelector((state) => state.dynamicChars)
 
     const handleOrder = (event) =>{
         dispatch(orderCards(event.target.value));
+        setAux(!aux);
     }
 
     const handleFilter = (event) =>{
@@ -27,7 +31,7 @@ export default function Favorites(){
                     </select>
 
                     <select onChange={handleFilter}>
-                        <option value="All">None</option>
+                        <option value="All">All</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Genderless">Genderless</option>
@@ -38,7 +42,7 @@ export default function Favorites(){
 
             <div className={styleFavs.container_Grid_Favs}>
                 {
-                    myFavorites?.map(fav =>{
+                    dynamicChars?.map(fav =>{
                         return(
                             <Card
                                 key     = {fav.id}

@@ -4,26 +4,24 @@ const getAllChars = require('../controllers/getAllChars')
 const router = require('express').Router();
 const getAllFavorites = require('../controllers/getAllFavorites')
 const deleteFavoriteById = require('../controllers/deleteFavoriteById')
-const {postFav, deleteFav} = require('../controllers/handleFavorites')
+const {postFav} = require('../controllers/postFav')
 
-
-
-router.post('/fav', async(req, res) =>{
+router.post('/fav', async(req, res) => {
     try {
         const newFav = await postFav(req, res);
-
+        
         if(newFav.error) throw Error(newFav.error)
 
         return res.status(200).json(newFav)
     } catch (error) {
-        return res.status(404).json(`Error: ${error}`)
+        return res.status(400).json(`${error}`)
     }
 })
 
 
 router.post('/logIn', async(req,res) =>{
     try {
-        const access = await login(req, res)
+        const access = login(req, res)
 
         if(access.error) throw Error(access.error)
 
@@ -75,7 +73,7 @@ router.get('/character/:id', async (req,res) =>{
         const char = await getCharById(req, res)
 
         if(char.error) throw Error(char.error)
-        console.log(char);
+
         return res.status(200).json(char)
     } catch (error) {
         return res.status(404).json(`Error: ${error}`)

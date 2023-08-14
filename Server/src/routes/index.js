@@ -4,8 +4,8 @@ const deleteFavoriteById = require('../controllers/deleteFavoriteById')
 const { login } = require('../controllers/login')
 const { getCharById } = require('../controllers/getCharById')
 const { getAllFavorites } = require('../controllers/getAllFavorites')
-const { postFav } = require('../controllers/postFav')
-
+const { postFav } = require('../controllers/postFav');
+const { getApiData } = require('../controllers/getApiData');
 
 router.post('/logIn', async(req, res) =>{
     try {
@@ -20,7 +20,7 @@ router.post('/logIn', async(req, res) =>{
 
 router.get('/allCharacters', async(_req,res) => {
     try {
-        const allCharacters = await getAllChars();
+        const allCharacters = await getApiData();
         if(allCharacters.error) throw Error(allCharacters.error)
         return res.status(200).json(allCharacters)
 

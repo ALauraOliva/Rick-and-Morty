@@ -4,13 +4,11 @@ const server = express();
 const router = require('./routes/index')
 const PORT   = 3001;
 const { sequelize }   = require('./DB_connection')
-const { saveApiData } = require('./controllers/saveApiData')
 
 server.use(express.json());
 server.use(morgan('dev'));
 
 sequelize.sync({ force: true}).then(() => {
-    saveApiData();
     server.listen(PORT, () => {
         console.log(`server raise in port : ${PORT}`)
     } )

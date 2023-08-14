@@ -37,13 +37,13 @@ const Form = ({ login, access }) =>{
 
                     <div className={styledForm.containerLabels}>
                         <label htmlFor="email">Email:</label>
-                        <input className={styledForm.inputt} type="text" name="email" value={userData.email} onChange={handleChange}></input>
+                        <input className={styledForm.inputt} type="text" name="email" value={userData.email} onChange={handleChange} placeholder='test@gmail.com'></input>
                     </div>
                     {errors.email && <p style={{color:"white"}}> {errors.email} </p>}
 
                     <div className={styledForm.containerLabels}>
                         <label htmlFor="password">Password:</label>
-                        <input className={styledForm.inputt} type="password" name="password" value={userData.password} onChange={handleChange}></input>                   
+                        <input className={styledForm.inputt} type="password" name="password" value={userData.password} onChange={handleChange}placeholder='123abc'></input>                   
                     </div>
                     {errors.password && <p style={{color:"white"}}> {errors.password } </p>}
 

@@ -7,7 +7,7 @@ const getAllFavorites = async () => {
         return allFavorites;
         
     } catch (error) {
-        return {error:"No se pudo recuperar tus favoritos"}
+        return {error:"Could not find your favorites characters"}
     }
 }
 

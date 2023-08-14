@@ -6,6 +6,7 @@ import About from './components/About/About'
 import Detail from './components/Detail/Detail'
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
+import { Helmet } from "react-helmet";
 import { searchById, removeCharHome } from './redux/actions';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -42,6 +43,13 @@ function App() {
    
    return (
       <div id='AppContainer'>
+         <Helmet>
+            <meta charSet="utf-8" />
+            <title>Rick and Morty</title>
+            <link rel="canonical" href="http://mysite.com/example" />
+            <meta name="description" content="Helmet application" />
+         </Helmet>
+
          <div id='stars'>
             <div id='stars2'>
                <div id='stars3'/>

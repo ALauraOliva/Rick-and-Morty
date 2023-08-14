@@ -29,4 +29,4 @@ server.use((req, res, next) => {
     next();
 });
 
-server.use('/rickandmorty', router)
+server.use('/', router) //details

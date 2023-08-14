@@ -4,7 +4,7 @@ const { DATABASE_URL } = process.env;
 const Character = require('./models/Character')
 const Favorite = require('./models/Favorite')
 
-const sequelize = new Sequelize(DATABASE_URL,
+const sequelize = new Sequelize( DATABASE_URL,
 { logging: false, native: false }
 );
 

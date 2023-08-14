@@ -4,7 +4,7 @@ const postFav = async(req, _res) => {
     try {
         const { id, name, status, species, gender, origin, image } = req.body;
 
-        if(!id || !name || !status || !species || !gender || !origin || !image) throw new Error('Faltan datos obligatorios')
+        if(!id || !name || !status || !species || !gender || !origin || !image) throw new Error('Mandatory data is missing')
 
         const newFav = await Favorite.create({ 
             id,

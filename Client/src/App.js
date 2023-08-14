@@ -25,7 +25,7 @@ function App() {
    
    const login = async (userData) => {
       try {
-         const { data } = await axios.post ('http://localhost:3001/rickandmorty/logIn', userData);
+         const { data } = await axios.post ('https://rickandmorty-server-hya0.onrender.com/logIn', userData);
          setAccess(data.access)
          
       } catch (error) {

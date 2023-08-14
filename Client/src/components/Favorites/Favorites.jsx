@@ -2,12 +2,12 @@ import Card from "../Card/Card"
 import styleFavs from './Favorites.module.css'
 import { useDispatch, useSelector } from "react-redux"
 import { filterCards, orderCards } from '../../redux/actions'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Favorites(){
-    const dispatch    = useDispatch()
+    const dispatch      = useDispatch()
     const [aux, setAux] = useState(false);
-    const dynamicChars = useSelector((state) => state.dynamicChars)
+    const dynamicChars  = useSelector((state) => state.dynamicChars)
 
     const handleOrder = (event) =>{
         dispatch(orderCards(event.target.value));
@@ -17,6 +17,12 @@ export default function Favorites(){
     const handleFilter = (event) =>{
         dispatch(filterCards(event.target.value))
     }
+
+    useEffect(() => {
+        handleOrder({ target: { value: "N" } });
+        handleFilter({ target: { value: "All" } });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return(
         <>

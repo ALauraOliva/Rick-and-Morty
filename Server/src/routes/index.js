@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const getAllChars = require('../controllers/getAllChars') 
 const deleteFavoriteById = require('../controllers/deleteFavoriteById')
 const { login } = require('../controllers/login')
 const { getCharById } = require('../controllers/getCharById')

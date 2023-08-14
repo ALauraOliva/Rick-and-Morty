@@ -12,7 +12,7 @@ export default function About(){
                     <h1>Andrea Laura</h1>
                     <h3>And I'm ...</h3>
                     <p>I'm 23 years old</p>
-                    <p>I'm a future full stack web developer</p>
+                    <p>I am a constantly progressing full stack developer</p>
                     <div className={styledAbout.links}>
                         <a href='https://github.com/ALauraOliva' ><BsGithub size="3em" color='white'/></a>
                         <a href='https://www.instagram.com/' ><AiFillInstagram size="3em" color='white'/></a>

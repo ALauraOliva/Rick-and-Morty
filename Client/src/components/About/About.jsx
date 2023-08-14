@@ -10,7 +10,7 @@ export default function About(){
             <div className={styledAbout.content}>
                     <h3>Hello It's Me</h3>
                     <h1>Andrea Laura</h1>
-                    <h3>And I'm ...</h3>
+                    <h3>And I'm...</h3>
                     <p>I'm 23 years old</p>
                     <p>I am a constantly progressing full stack developer</p>
                     <div className={styledAbout.links}>

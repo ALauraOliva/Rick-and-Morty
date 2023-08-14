@@ -12,7 +12,7 @@ export default function Detail(){
     const {id} = useParams();
 
     useEffect(() => {
-        axios(`https://rickandmorty-server-hya0.onrender.com/character/${id}`).then(({ data }) => {
+        axios(`https://rickandmorty-server-pq7r.onrender.com/character/${id}`).then(({ data }) => {
            if (data.name) {
               setCharacter(data);
               setLoading(false);

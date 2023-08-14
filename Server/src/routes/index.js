@@ -6,6 +6,10 @@ const { getAllFavorites } = require('../controllers/getAllFavorites')
 const { postFav } = require('../controllers/postFav');
 const { getApiData } = require('../controllers/getApiData');
 
+router.get('/', async (_req, res) => {
+    res.send('¡Hello world, I am alive!');
+})
+
 router.post('/logIn', async(req, res) =>{
     try {
         const access = login(req, res)

@@ -1,6 +1,6 @@
 import styleCard from "./Detail.module.css";
 import axios from "axios";
-import barcode from "./barcode.png";
+import barcode from "../../assets/barcode.webp";
 import PreLoader2 from "../PreLoader/PreLoader2";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";

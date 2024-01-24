@@ -1,5 +1,5 @@
 import styledAbout from "./About.module.css";
-import Me from "./MePhoto.jpg";
+import Me from "../../assets/MePhoto.webp";
 import { BsGithub } from "react-icons/bs";
 import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 

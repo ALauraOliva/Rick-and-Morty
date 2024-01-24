@@ -6,7 +6,7 @@ function PreLoader1() {
     <div className={stylePreLoader.contenedorPreLoader}>
       <img
         className={stylePreLoader.img}
-        src={require("./MortyblinkingLoader.gif")}
+        src={require("../../assets/MortyblinkingLoader.gif")}
         alt="loading..."
       />
     </div>

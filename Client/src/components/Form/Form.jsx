@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import validation from "../Validation/Validation";
 import styledForm from "./Form.module.css";
-import loginLogo2 from "./login2.png";
+import loginLogo2 from "../../assets/login2.webp";
 
 const Form = ({ login, access }) => {
   const navigate = useNavigate();

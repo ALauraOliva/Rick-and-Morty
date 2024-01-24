@@ -1,8 +1,8 @@
 import SearchBar from "../SearchBar/SearchBar";
 import styledNav from "./Nav.module.css";
 import { Link } from "react-router-dom";
-import RickAndMortyLogoNav from "./RickandMortyLogo.png";
-import audio from "./ThemeSong.mp3";
+import RickAndMortyLogoNav from "../../assets/RickandMortyLogo.webp";
+import audio from "../../assets/ThemeSong.mp3";
 
 export default function Nav({ onSearch, setAccess }) {
   const handleLogOut = () => {

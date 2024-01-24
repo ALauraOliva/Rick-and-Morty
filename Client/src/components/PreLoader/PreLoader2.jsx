@@ -6,12 +6,12 @@ function PreLoader2() {
     <div className={stylePreLoader2.contenedorPreLoader}>
       <img
         className={stylePreLoader2.img}
-        src={require("./portal.png")}
+        src={require("../../assets/portal.webp")}
         alt="loading..."
       />
       <img
         className={stylePreLoader2.img2}
-        src={require("./MortyBlink.gif")}
+        src={require("../../assets/MortyBlink.gif")}
         alt="loading..."
       />
     </div>

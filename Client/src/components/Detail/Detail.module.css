@@ -27,7 +27,7 @@
   overflow: hidden;
   width: 700px;
   height: fit-content;
-  background-image: url("./FondoCardTransparente.png");
+  background-image: url("../../assets/FondoCardTransparente.webp");
   background-color: #ffffff;
   background-size: cover;
   background-repeat: no-repeat;

@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
-const { PGUSER, PGPASSWORD, PGHOST, PGDATABASE, DATABASE_URL } = process.env;
+const { DATABASE_URL } = process.env;
 const Character = require("./models/Character");
 const Favorite = require("./models/Favorite");
 

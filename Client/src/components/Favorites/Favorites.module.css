@@ -1,81 +1,81 @@
 .container_Grid_Favs {
-    display: grid;
-    grid-template-columns: 4fr 4fr 4fr;
-    place-items: center;
-    margin-bottom: 3%;
+  display: grid;
+  grid-template-columns: 4fr 4fr 4fr;
+  place-items: center;
+  margin-bottom: 3%;
 }
- 
+
 .contenedorGlobalFavs {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .containerFiltros {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10%;
-    margin: 40px 0px 15px 0px;
-    align-items: center;
-    border-radius: 10px;
-    background:  rgba(255,255,255,0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(10px);
-    width: 40%;
-    padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10%;
+  margin: 40px 0px 15px 0px;
+  align-items: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 40%;
+  padding: 10px;
 }
 
 select {
-    background-color: #42B4CA;
-    border-radius: 10px;
-    padding: 10px;
-    font-family: Patrick Hand;
-    font-size: x-large;
-    transition: ease-out 0.1s;
-    text-align: center;
-    cursor: pointer;
-    color: #BEDD3E;
-    text-shadow:2px 1px #42B4CB;
+  background-color: #42b4ca;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: Patrick Hand;
+  font-size: x-large;
+  transition: ease-out 0.1s;
+  text-align: center;
+  cursor: pointer;
+  color: #bedd3e;
+  text-shadow: 2px 1px #42b4cb;
 }
 
 .containerFiltros div {
-    color: white;
-    font-family: Patrick Hand;
-    font-size: x-large;
+  color: white;
+  font-family: Patrick Hand;
+  font-size: x-large;
 }
 
 @media screen and (max-width: 630px) {
-    select {
-        border-radius: 10px;
-        padding: 2px;
-        font-size: 20px;
-    }
+  select {
+    border-radius: 10px;
+    padding: 2px;
+    font-size: 20px;
+  }
 
-    .containerFiltros {
-        width: 85%;
-    }
+  .containerFiltros {
+    width: 85%;
+  }
 
-    .containerFiltros div {
-        font-size: 10px;
-    }
+  .containerFiltros div {
+    font-size: 10px;
+  }
 
-    .container_Grid_Favs {
-        grid-template-columns: 12fr;
-    }
+  .container_Grid_Favs {
+    grid-template-columns: 12fr;
+  }
 }
 
 @media screen and (min-width: 631px) and (max-width: 1080px) {
-    .containerFiltros {
-        width: 65%;
-    }
+  .containerFiltros {
+    width: 65%;
+  }
 
-    .container_Grid_Favs {
-        grid-template-columns: 6fr 6fr;
-    }
+  .container_Grid_Favs {
+    grid-template-columns: 6fr 6fr;
+  }
 
-    .containerFiltros div {
-        font-size: 20px;
-    }
+  .containerFiltros div {
+    font-size: 20px;
+  }
 }

@@ -1,28 +1,28 @@
-const { Favorite } = require('../DB_connection')
+const { Favorite } = require("../DB_connection");
 
-const postFav = async(req, _res) => {
-    try {
-        const { id, name, status, species, gender, origin, image } = req.body;
+const postFav = async (req, _res) => {
+  try {
+    const { id, name, status, species, gender, origin, image } = req.body;
 
-        if(!id || !name || !status || !species || !gender || !origin || !image) throw new Error('Mandatory data is missing')
+    if (!id || !name || !status || !species || !gender || !origin || !image)
+      throw new Error("Mandatory data is missing");
 
-        const newFav = await Favorite.create({ 
-            id,
-            name,
-            status,
-            species,
-            gender,
-            origin,
-            image,
-        });
-        
-        return newFav;
+    const newFav = await Favorite.create({
+      id,
+      name,
+      status,
+      species,
+      gender,
+      origin,
+      image,
+    });
 
-    } catch (error) {
-        return {error : error.message}
-    } 
-}
+    return newFav;
+  } catch (error) {
+    return { error: error.message };
+  }
+};
 
 module.exports = {
-    postFav
+  postFav,
 };

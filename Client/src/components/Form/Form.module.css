@@ -1,146 +1,149 @@
 .formContenedor {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .login {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border:1px solid rgba(255,255,255,0.18);
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
-    justify-content: center;
-    align-items: center;  
-    gap: 30px;
-    width: 400px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 400px;
 }
 
 .login img {
-    width: 90%;
+  width: 90%;
 }
 
 label {
-    background-color: transparent;
-    font-family: Patrick Hand;
-    font-size: 30px;
-    text-decoration: none; /*?Para quitarle el subrayado o tachados por ser enlace que tiene*/
-    color: #BEDD3E;
-    transition: ease-out 0.3s;
-    text-shadow:2px 1px #42B4CA;
+  background-color: transparent;
+  font-family: Patrick Hand;
+  font-size: 30px;
+  text-decoration: none; /*?Para quitarle el subrayado o tachados por ser enlace que tiene*/
+  color: #bedd3e;
+  transition: ease-out 0.3s;
+  text-shadow: 2px 1px #42b4ca;
 }
 
 .inputt {
-    font-family: Patrick Hand ;
-    font-size: 20px;
-    color: white;
-    border-color: #42B4CA;
-    border-width: 6px;
-    background: transparent;
-    border-radius: 30px;
-    padding: 4px 4px 4px 4px;
-    color: #7AC71D;
-    width: 100%;
-    text-align: center;
+  font-family: Patrick Hand;
+  font-size: 20px;
+  color: white;
+  border-color: #42b4ca;
+  border-width: 6px;
+  background: transparent;
+  border-radius: 30px;
+  padding: 4px 4px 4px 4px;
+  color: #7ac71d;
+  width: 100%;
+  text-align: center;
 }
 
 .inputt:hover {
-    font-family: Patrick Hand ;
-    font-size: 20px;
-    color: white;
-    box-shadow: 0 0 25px 0 #7AC71D,
-                0 20px 25px 0 rgba(0, 0, 0, 0.2);
-    transition: all 1s;
- }
+  font-family: Patrick Hand;
+  font-size: 20px;
+  color: white;
+  box-shadow: 0 0 25px 0 #7ac71d, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+}
 
 .login button {
-    font-family: Patrick Hand ;
-   font-size: 20px;
-   color: white;
-   background-color: #42B4CA;
-   padding: 7px;
-   border-radius: 10px;
+  font-family: Patrick Hand;
+  font-size: 20px;
+  color: white;
+  background-color: #42b4ca;
+  padding: 7px;
+  border-radius: 10px;
 }
 
 .login button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .containerLabelsGlobal {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0px 20px 0px;
-    justify-content: space-around;
-    align-items: center;  
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px 20px 0px;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
 
 .containerLabels {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom:10px;
-    gap: 20px;
-    width: 85%;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 10px;
+  gap: 20px;
+  width: 85%;
+  align-items: center;
 }
 
 .containerLabelsGlobal p {
-    font-family: Patrick Hand;
-    font-size: large;
+  font-family: Patrick Hand;
+  font-size: large;
 }
 
 @media screen and (max-width: 334px) {
-    .login {
-        width: 90vw;
-        height: 75%;
-        gap: 0px;
-    }
+  .login {
+    width: 90vw;
+    height: 75%;
+    gap: 0px;
+  }
 
-    .login img {
-        position: relative;
-        top: -30px;
-    }
+  .login img {
+    position: relative;
+    top: -30px;
+  }
 
-    .containerLabels {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-bottom:5px;
-        gap: 0px;
-        width: 85%;
-        align-items: center;
-    }
+  .containerLabels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 5px;
+    gap: 0px;
+    width: 85%;
+    align-items: center;
+  }
 
-    .containerLabelsGlobal {
-        display: flex;
-        flex-direction: column;
-        padding: 0 0 20px 0;
-        justify-content: space-around;
-        align-items: center;  
-        width: 100%;
-    }
+  .containerLabelsGlobal {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 20px 0;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 335px) and (max-width: 420px) {
-    .containerLabels{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-bottom:5px;
-        gap: 0px;
-        width: 85%;
-        align-items: center;
-    }
+  .containerLabels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 5px;
+    gap: 0px;
+    width: 85%;
+    align-items: center;
+  }
 
-    .login{
-        gap: 10px;
-        width: 85%;
-    }
+  .login {
+    gap: 10px;
+    width: 85%;
+  }
 }

@@ -1,11 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import validation from "../Validation/Validation";
+import { useEffect } from "react";
 import styledForm from "./Form.module.css";
 import loginLogo2 from "../../assets/login2.webp";
 
 const Form = ({ login, access }) => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (access) {
+      navigate("/Home");
+    }
+  }, [access, navigate]);
 
   const [errors, setErrors] = useState({});
   const [userData, setUserData] = useState({
@@ -16,7 +23,6 @@ const Form = ({ login, access }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     login(userData);
-    access === true && navigate("/Home");
   };
 
   const handleChange = (event) => {
@@ -29,7 +35,6 @@ const Form = ({ login, access }) => {
       })
     );
   };
-
   return (
     <div className={styledForm.formContenedor}>
       <form className={styledForm.login} onSubmit={handleSubmit}>

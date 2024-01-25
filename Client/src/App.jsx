@@ -1,6 +1,6 @@
 import "./App.css";
-import axios from "axios";
 import Cards from "./components/Cards/Cards.jsx";
+import axios from "axios";
 import Nav from "./components/Nav/Nav.jsx";
 import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
@@ -20,6 +20,7 @@ function App() {
   const [access, setAccess] = useState(false);
 
   useEffect(() => {
+    console.log("useEffect triggered with access:", access);
     !access && navigate("/");
   }, [access, navigate]);
 
@@ -32,6 +33,7 @@ function App() {
       setAccess(data.access);
     } catch (error) {
       alert(`Error: ${error.response.data}`);
+      throw error;
     }
   };
 
